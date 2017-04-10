@@ -1,0 +1,1 @@
+Dado que o video não se encontrava com a melhor qualidade, segue-se um conjunto de imagens que explica as convolucoes. 

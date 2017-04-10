@@ -1,0 +1,21 @@
+Using python 2.7.10
+Numpy is required
+
+Problem 1:
+
+	python Problem1/Utility.py
+	python Problem1/graph.py
+
+Note: 
+	Commands can be run in no specific order. 
+	The first command will output a .csv file named utility.csv
+	The second command will output a .csv file named graph.csv
+	These files were used for graph making with aid of LibreOffice for the graphs 
+	showed in the report
+	For different values in the .csv files, the values in the reward function of 	both .py files must be altered
+
+
+
+Problem 2:
+
+	python Problem2/viterbi.py

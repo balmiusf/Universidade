@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" />
+        <title> figura </title>
+          <script src="../lib/Three.js"></script>
+          <script src="../lib/tween.min.js"></script>
+          <script src="../lib/jquery.js"></script>
+          <script src="../lib/jquery.mousewheel.js"></script>
+          <script src="../lib/sim/sim.js"></script>
+		  <script src="js/figura.js"></script>
+		  <script>
+
+var renderer = null;
+var scene = null;
+var camera = null;
+var cube = null;
+var animating = false;
+	
+			$(document).ready(
+				function() {
+					var container = document.getElementById("container");
+					var app = new TweenApp();
+					app.init({ container: container });
+					app.run();
+				}
+			);
+	
+		  </script>
+        <style type = "text/css">
+        body {
+            background-color: white;
+            font-family: sans-serif;
+
+        }
+        th {
+        	padding: 1em;
+        	background-color:#9F1C33;
+            color:white;
+        }
+        td {
+        	padding: 0.5em;
+            background-color: #EEE;
+            width: 50%;
+				
+            text-align: center;
+        }
+        table {
+        	width:100%;
+        }
+		  
+		  #container {
+		margin: 50px;
+		top: 150px;
+}
+		  
+        h1,h2 {
+        	text-align: center;
+        }
+		  
+		  
+        </style>
+    </head>
+    <body>
+    	<h1>Exercício n.º 3 &mdash; Aluno n.º 31626 </h1>
+    	<table>
+			<tr>
+				<th>Original</th>
+				<th>Reprodução</th>
+			</tr>
+    		<tr>
+                <td><img src="ophiotauros.jpg" style = "width:100%"></img></td>
+				<td>
+					<div id = "container" style="width:40%; height:50%; position:absolute;">
+				</td>
+			</tr>
+    	</table>
+        <h2>Engenharia Informática, Computação Gráfica &mdash; 2014-15</h2>
+    </body>
+</html>
+

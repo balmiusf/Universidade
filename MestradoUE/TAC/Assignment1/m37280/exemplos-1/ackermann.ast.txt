@@ -1,0 +1,32 @@
+(var (id "axe" var real) (plus (real_literal 3.11111): real (real_literal 0.03048): real): real)
+
+(fun "ackermann" [(arg "x" int) (arg "y" real)]
+  (body [
+      (var (id "r" local real) nil)
+    ] 
+    (if
+      (and (eq (id "y" arg real): real (real_literal 0.0): real): bool (ne (id "x" arg int): int (int_literal 0): int): bool): bool 
+      (assign (id "r" local real) (call "ackermann" [(minus (id "x" arg int): int (int_literal 1): int): int (toreal (int_literal 1): int): real]): real) 
+      (if
+        (eq (id "x" arg int): int (int_literal 0): int): bool 
+        (assign (id "r" local real) (plus (id "y" arg real): real (real_literal 1.0): real): real) 
+        (assign (id "r" local real) (call "ackermann" [(minus (id "x" arg int): int (int_literal 1): int): int (call "ackermann" [(id "x" arg int): int (minus (id "y" arg real): real (toreal (int_literal 1): int): real): real]): real]): real)))
+    (id "r" local real): real))
+
+(fun "p" [(arg "n" int)]
+  (body [
+      (var (id "i" local int) (int_literal 0): int)
+    ] 
+    (while
+      (le (id "i" local int): int (id "n" arg int): int): bool [
+        (print (call "ackermann" [(id "i" local int): int (toreal (id "n" arg int): int): real]): real)
+        (assign (id "i" local int) (plus (id "i" local int): int (int_literal 1): int): int)
+      ])
+    nil))
+
+(fun "main" []
+  (body [] [
+      (call "p" [(int_literal 1): int])
+      (print (id "axe" var real): real)
+    ]
+    nil))

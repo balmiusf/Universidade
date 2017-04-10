@@ -1,0 +1,161 @@
+/*1*/
+/*a*/
+insert into clienteServico Values(22222222,1111111,'Brisa','Quinta da torre da Agulha','Sao Domingos da Rosa');
+insert into servico Values(1111111,100000000,'A1');
+insert into servico Values(1111111,100000001,'A1');
+insert into servico Values(1111111,100000002,'A1');
+insert into servico Values(1111111,200000000,'A2');
+insert into servico Values(1111111,200000001,'A2');
+insert into servico Values(1111111,200000002,'A2');
+insert into servico Values(1111111,600000000,'A6');
+insert into servico Values(1111111,600000001,'A6');
+insert into servico Values(1111111,600000002,'A6');
+insert into portagemAutoEstrada Values(200000000,70,1,3);
+insert into portagemAutoEstrada Values(200000001,140,2,3);
+insert into portagemAutoEstrada Values(200000002,210,3,3);
+insert into portagemAutoEstrada Values(100000000,100,1,3);
+insert into portagemAutoEstrada Values(100000001,200,2,3);
+insert into portagemAutoEstrada Values(100000002,300,3,3);
+insert into portagemAutoEstrada Values(600000000,150,1,3);
+insert into portagemAutoEstrada Values(600000001,300,2,3);
+insert into portagemAutoEstrada Values(600000002,450,3,3);
+insert into tem values(200000000,'A2Gate1');
+insert into tem values(200000001,'A2Gate2');
+insert into tem values(200000002,'A2Gate3');
+insert into tem values(100000000,'A1Gate1');
+insert into tem values(100000001,'A1Gate2');
+insert into tem values(100000002,'A1Gate3');
+insert into tem values(600000000,'A6Gate1');
+insert into tem values(600000001,'A6Gate2');
+insert into tem values(600000002,'A6Gate3');
+
+/*b*/
+
+insert into clienteServico Values(33333333,2222222,'Galp','Rua Joaquim da Ova','Beja');
+insert into servico Values(2222222,300000345,'Evora');
+insert into servico Values(2222222,700000000,'Grandola');
+
+insert into bomba Values(300000345,'ZonaIndustrialnº10','Evora');
+insert into bomba Values(700000000,'ZonaIndustrialnº15','Grandola');
+
+insert into tem values(300000345,'DepositEv1');
+insert into tem values(700000000,'DepositGran1');
+
+/*c*/
+insert into clienteServico Values(55555555,4444444,'Lusoponte','Rua das Oliveiras','Aguiar');
+insert into servico Values(4444444,500000000,'Vasco da Gama');
+insert into servico Values(4444444,900000000,'25 de Abril');
+insert into ponte Values(900000000,1);
+insert into ponte Values(500000000,2);
+insert into tem values(500000000,'VGGate1');
+insert into tem values(900000000,'AbrilGate1');
+
+/*d*/
+insert into clienteServico Values(77777777,6666666,'BragaParques','Rua do Beco','Agua de Peixes');
+insert into servico Values(6666666,400000000,'Lisboa');
+insert into servico Values(6666666,300000002,'Evora');
+insert into parque Values(400000000,0.04);
+insert into parque Values(300000002,0.03);
+INSERT INTO tem VALUES(300000002, 'ParqEvEntr1');
+INSERT INTO tem VALUES(300000002, 'ParqEvEntr2');
+INSERT INTO tem VALUES(300000002, 'ParqEvEntr3');
+INSERT INTO tem VALUES(300000002, 'ParqEvSaid1');
+INSERT INTO tem VALUES(300000002, 'ParqEvSaid2');
+INSERT INTO tem VALUES(300000002, 'ParqEvSaid3');
+INSERT INTO tem VALUES(400000000, 'ParqLisbEntr1');
+INSERT INTO tem VALUES(400000000, 'ParqLisbEntr2');
+INSERT INTO tem VALUES(400000000, 'ParqLisbEntr3');
+INSERT INTO tem VALUES(400000000, 'ParqLisbSaid1');
+INSERT INTO tem VALUES(400000000, 'ParqLisbSaid2');
+INSERT INTO tem VALUES(400000000, 'ParqLisbSaid3');
+
+/*e*/
+insert into clienteViaVerde Values(12345678,1234567,123,'2345AA','Joao Silva','Rua Jerónimo','Lisboa');
+insert into clienteViaVerdepass Values(123,145145145);
+
+
+/*f*/
+insert into clienteViaVerde Values(87654321,7654321,124,'2245AA','Maria Santos','Bairro da calcada','Lisboa');
+insert into clienteViaVerdepass Values(124,140140140);
+
+/*g*/
+insert into clienteViaVerde Values(12121212,1212121,125,'2145AA','Mario Gomes','Beco Timor','Portalegre');
+insert into clienteViaVerdeBi Values(125,142142142);
+/*h*/
+
+insert into cancelaparq Values(123,'ParqLisbEntr1','Entrada','2014-10-12 13:00:00');
+	
+/*i*/
+
+insert into cancelaparq Values(123,'ParqLisbSaid2','Saida','2014-10-13 8:12');
+
+/*j*/
+insert into cancelaparq Values(124,'ParqEvEntr2','Entrada','2014-10-10 11:22');
+
+/*k*/
+insert into cancelaparq Values(124,'ParqEvSaid1','Saida','2014-10-10 13:00');
+/*l*/
+insert into passagemAE Values(125,'A2Gate1','2009-11-12 14:05');
+
+/*m*/
+insert into passagemAE Values(125,'A2Gate2','2009-11-12 15:00');
+
+/*n*/
+insert into passagemAE Values(125,'AbrilGate1','2009-11-1 18:05');
+
+/*o*/
+insert into abastecimento Values(125,'DepositEv1','2009-10-11 21:00',50);
+
+/*4*/
+
+insert into passagemAE Values(123,'AbrilGate1','2014-10-13 10:00');
+insert into clienteViaVerde Values(12582912,1048576,130,'1024KB','Mega Byte','Memoria','Asus');
+insert into clienteViaVerdeBi Values(130,100663296);
+insert into abastecimento Values(123,'DepositEv1','2014-11-11 21:59',40);
+insert into cancelaparq Values(125,'ParqEvEntr3','Entrada','2014-10-27 09:00');
+insert into cancelaparq Values(125,'ParqEvSaid3','Saida','2014-10-27 11:00');
+insert into passagemAE Values(125,'A2Gate3','2009-09-11 16:00');
+insert into passagemAE Values(130,'A2Gate1','2009-09-12 18:00');
+insert into passagemAE Values(130,'A2Gate2','2009-09-14 9:00');
+insert into passagemAE Values(130,'A2Gate3','2014-10-28 9:00');
+insert into passagemAE Values(130,'A6Gate1','2014-10-29 23:00');
+	
+/*5*/
+
+a) Select nome from clienteviaverde natural inner join clienteviaverdepass;
+
+b) Select matricula from clienteviaverde,tem,servico,clienteservico,abastecimento where clienteviaverde.idviaverde=abastecimento.idviaverde and abastecimento.idlocalp = tem.idlocalp and tem.idlocal = servico.idlocal and servico.nomelocal = 'Evora' and clienteservico.nome = 'Galp';
+
+c) Select matricula from clienteviaverde,tem,servico,portagemautoestrada,passagemae where clienteviaverde.idviaverde = passagemae.idviaverde and tem.idlocalp = passagemae.idlocalp and tem.idlocal = portagemautoestrada.idlocal and servico.idlocal = portagemautoestrada.idlocal and saida = 2 and nomelocal = 'A2';
+
+d) select idlocal,datas from passagemae natural inner join tem natural inner join portagemautoestrada where idviaverde = 123;
+
+e) with total(valor) as ((select sum(valor) from abastecimento where idviaverde = 123 and date_part('month',datas) = 11 and date_part('year',datas) = 2014) UNION (select sum(valor) from passagemae natural inner join tem natural inner join portagemautoestrada where idviaverde = 123 and date_part('month',datas) = 11 and date_part('year',datas) = 2014) UNION (select sum(valor) from passagemae natural inner join tem natural inner join ponte where idviaverde = 123 and date_part('month',datas) = 11 and date_part('year',datas) = 2014) UNION (select sum((extract (epoch from (saida.datas - entrada.datas))/60)*valorminuto) from cancelaparq saida, cancelaparq entrada,parque,tem where entrada.idviaverde = saida.idviaverde and entrada.entradasaida = 'Entrada' and saida.entradasaida = 'Saida' and entrada.idviaverde = 123 and entrada.idlocalp = tem.idlocalp and tem.idlocal = parque.idlocal and date_part('month',entrada.datas) = 11 and date_part('year',entrada.datas) = 2014 and date_part('month',saida.datas) = 11 and date_part('year',saida.datas) = 2014))
+select sum(valor) from total where valor is not null;
+
+f) with total(valor) as ((select sum(valor) from clienteviaverde natural inner join abastecimento where nome = 'Mario Gomes' and date_part('month',datas) = 10) 
+UNION (select sum(valor) from clienteviaverde natural inner join passagemae natural inner join tem natural inner join portagemautoestrada  where nome = 'Mario Gomes' and date_part('month',datas) = 10) 
+UNION (select sum(valor) from passagemae natural inner join tem natural inner join ponte natural inner join clienteviaverde where nome = 'Mario Gomes' and date_part('month',datas) = 10) UNION (select sum((extract(epoch from(saida.datas - entrada.datas))/60)*valorminuto) from cancelaparq saida, cancelaparq entrada, clienteviaverde,parque,tem where entrada.idviaverde = saida.idviaverde and entrada.entradasaida = 'Entrada' and saida.entradasaida = 'Saida' and nome = 'Mario Gomes' and entrada.idlocalp = tem.idlocalp and tem.idlocal = parque.idlocal and date_part('month',entrada.datas) = 10 and date_part('month',saida.datas) = 10 and nome = 'Mario Gomes' and entrada.idviaverde = clienteviaverde.idviaverde))
+select sum(valor) from total where valor is not null;
+
+g) Select Nome from clienteViaVerde natural Inner join abastecimento;
+
+h) select nome,idviaverde from cancelaparq natural inner join clienteviaverde;
+
+i)  select Saida.idviaverde, max(Saida.datas - Entrada.datas) as maxt from cancelaparq Saida, cancelaparq Entrada where Entrada.idviaverde = Saida.idviaverde and Entrada.entradasaida = 'Entrada' and Saida.entradasaida = 'Saida' group by Saida.idviaverde order by maxt desc limit 1;
+
+j) Select nomelocal,count(Datas) as maximum from servico natural Inner Join ponte natural Inner Join tem natural inner join passagemae Group by nomelocal Order by maximum Limit 1;
+
+k) Select nomelocal,count(IDViaVerde) maximum from abastecimento natural inner join tem natural inner join bomba natural inner join servico natural inner join clienteservico where nome='Galp' Group by nomelocal Order by maximum Limit 1;
+
+l) select clienteviaverde.nome,clienteviaverde.idviaverde,passagemae.idlocalp,valor,nomelocal,saida,datasfrom portagemautoestrada,tem,passagemae,clienteviaverde,servico where clienteviaverde.idviaverde = passagemae.idviaverde and passagemae.idlocalp = tem.idlocalp and tem.idlocal = portagemautoestrada.idlocal and portagemautoestrada.idlocal = servico.idlocal and date_part('year',datas) = 2014;
+
+m)  with ordenado(nome,valor) as(select nome,sum(valor) from clienteservico natural inner join servico natural inner join ponte natural inner join tem natural inner join passagemAE where (date_part('year',datas)=2014) and (date_part('month',datas)=11)group by nome)UNION(select nome,sum(valor) from clienteservico natural inner join servico natural inner join portagemautoestrada natural inner join tem natural inner join passagemAE where (date_part('year',datas)=2014) and date_part('month',datas)=11) group by nome) UNION (select nome,sum(valor) from clienteservico natural inner join servico natural inner join bomba natural inner join tem natural inner join abastecimento where (date_part('year',datas)=2014) and (date_part('month',datas)=11) group by nome )
+Select sum(valor) from ordenado)
+
+n) Select distinct IDViaVerde from passagemAE natural inner join tem natural inner join portagemautoestrada natural inner join servico where NomeLocal='A2' and date_part('month',datas)=09 and saida in(select saida from portagemAutoEstrada natural inner join servico where NomeLocal='A2'); 
+
+o) Select distinct Nome from clienteViaVerde where nome not in (select nome from ClienteViaVerde natural inner join passagemAE natural inner join tem natural inner join ponte); 
+
+p) Select distinct Nome from clienteservico natural inner join servico where Nome not in(Select nome from clienteservico natural inner join servico natural inner join tem natural inner join cancelaparq where date_part('month',datas)=09 UNION (Select nome from clienteservico natural inner join servico natural inner join tem natural inner join passagemAE where date_part('month',datas)=09 )Union (Select nome from clienteservico natural inner join servico natural inner join tem natural inner join abastecimento where date_part('month',datas)=09));
+

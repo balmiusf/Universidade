@@ -1,0 +1,110 @@
+drop schema public cascade;
+create schema public;
+
+Create Table clienteViaVerde ( 
+NIB INTEGER CHECK(NIB>0) ,
+NiF Integer check (NiF>0),
+IDViaVerde Integer check (IDViaVerde >0),
+Matricula char(6) not null,
+Nome varchar (30) Not null,
+Morada varchar (50) Not null,
+Cidade char(20) not null,
+Primary key(IDViaVerde)
+);
+
+Create Table clienteViaVerdePass (
+IDViaVerde Integer check (IDViaVerde >0),
+Npassp Integer check (Npassp > 0),
+Primary key(NpassP),
+Foreign key(IDViaVerde) references clienteViaVerde on delete restrict
+);
+
+Create Table clienteViaVerdeBi(
+IDViaVerde Integer Check(IDViaVerde >0),
+NPBi integer check (NPBi > 0),
+Primary key(NPBi),
+Foreign key(IDViaVerde) references clienteViaVerde on delete restrict
+);
+
+Create Table clienteServico(
+NIB INTEGER CHECK( NIB>0) ,
+NiF Integer check (NiF>0) ,
+Nome varchar (30) Not null,
+Morada varchar (50) Not null,
+Cidade varchar(20) Not null,
+Primary Key (NiF)
+);
+
+Create Table servico(
+NiF Integer check (NiF>0),
+IDLocal Integer check(IDLocal>0),
+NomeLocal varchar(25) not null,
+Primary key(IDLocal),
+Foreign key (NiF) references clienteServico on delete restrict
+);
+
+Create Table bomba(
+IDLocal Integer check(IDLocal>0),
+Morada varchar(50) not null,
+Cidade varchar (20) not null,
+Primary key(IDLocal,Morada),
+Foreign key(IDLocal) references servico on delete restrict
+);
+
+Create Table ponte(
+IDLocal Integer check(IDLocal>0),
+Valor Integer check (Valor>0),
+Primary Key (IDLocal),
+Foreign key(IDLocal) references servico on delete restrict
+);
+
+Create Table parque(
+IDLocal Integer check(IDLocal>0),
+ValorMinuto decimal check(ValorMinuto>0),
+Primary Key (IDLocal),
+Foreign key(IDLocal) references servico on delete restrict
+);
+
+Create Table portagemAutoEstrada(
+IDLocal Integer check(IDLocal>0),
+Km Integer check(Km>0),
+Saida Integer check(Saida>0),
+Valor Integer check(Valor >0),
+Primary Key (IDLocal),
+Foreign Key(IDLocal) references servico on delete restrict
+);
+
+Create Table tem(
+IDLocal Integer check(IDLocal>0),
+IDLocalP varchar(20) not null,
+Primary Key(IDLocalP)
+);
+
+Create Table cancelaparq(
+IDViaVerde Integer check (IDViaVerde>0),
+IDLocalP varchar(20) not null,
+EntradaSaida varchar(7) not null ,
+Datas timestamp not null, 
+foreign key(IDlocalP) references tem on delete restrict,
+foreign key(IDViaVerde) references clienteViaVerde on delete restrict,
+Primary Key(IDViaVerde,EntradaSaida,Datas) 
+);
+
+Create Table passagemAE(
+IDViaVerde Integer check(IDViaVerde>0),
+IDLocalP varchar(20) not null,
+Datas timestamp not null,
+Foreign key(IDLocalP) references tem on delete restrict,
+Foreign key(IDViaVerde) references clienteViaVerde on delete restrict,
+Primary Key(IDViaVerde,IDLocalP,Datas) 
+);
+
+Create Table abastecimento(
+IDViaVerde Integer check(IDViaVerde>0),
+IDLocalP varchar not null,
+Datas timestamp not null,
+Valor Integer check(Valor >0),
+Foreign key(IDLocalP) references tem on delete restrict,
+Foreign key (IDViaVerde) references clienteViaVerde on delete restrict, 
+Primary Key(IDViaVerde,Datas)
+);       

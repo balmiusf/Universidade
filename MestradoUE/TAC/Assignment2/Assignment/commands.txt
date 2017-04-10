@@ -1,0 +1,14 @@
+1. make 
+2. Run the examples
+	2.1 make run-1
+	2.2 make run-2
+	2.3 make run-3
+	2.4 make run-4
+	2.5 make run-5
+
+3. Or just run the executable
+	3.1 ./tacl
+
+4. make clean
+
+	

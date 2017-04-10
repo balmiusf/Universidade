@@ -1,0 +1,301 @@
+﻿/*8 - criacao de tabelas */
+
+drop schema public cascade;
+create schema public;
+
+create type multiplo as (
+nome varchar,
+apelido varchar
+);
+
+create table autor(
+nomeA multiplo,
+primary key(nomeA)
+);
+
+
+create table emailautor(
+nomeA multiplo,
+email varchar unique,
+primary key(nomeA),
+foreign key(nomeA) references autor on delete restrict
+);
+
+create table orcidautor(
+nomeA multiplo,
+orcid integer check(orcid>0) unique,
+primary key(nomeA),
+foreign key(nomeA)references autor on delete restrict
+);
+
+create table degoisautor(
+nomeA multiplo,
+degois integer check(degois>0),
+primary key(nomeA),
+foreign key(nomeA) references autor on delete restrict,
+unique(degois)
+);
+
+create table instituicao(
+nomeI varchar not null,
+locale varchar not null,
+primary key(nomeI,locale)
+);
+
+create table vinculo(
+nomeA multiplo,
+dataini date not null,
+datafim date not null,
+nomeI varchar not null,
+locale varchar not null,
+primary key(nomeA,dataini,locale,nomeI),
+foreign key (nomeA) references autor on delete restrict,
+foreign key (nomeI,locale) references instituicao on delete restrict
+);
+
+create table artigo(
+IDartigo integer check(IDartigo>0),
+primary key(IDartigo)
+);
+
+create table faz(
+IDartigo integer check(IDartigo>0),
+nomeA multiplo,
+primary key(IDartigo,nomeA),
+foreign key(IDartigo) references artigo on delete restrict,
+foreign key(nomeA) references autor on delete restrict
+);
+
+create table capitulo(
+IDartigo integer check(IDartigo>0),
+tituloC varchar not null,
+tituloL varchar not null,
+ano integer check(ano>0),
+primary key(IDartigo),
+foreign key(IDartigo) references artigo on delete restrict
+);
+
+create table capitulopaginas(
+IDartigo integer check(IDartigo>0),
+paginas integer check(paginas>0),
+editora varchar not null,
+primary key (IDartigo),
+foreign key (IDartigo) references artigo on delete restrict
+);
+
+create table revista(
+IDartigo integer check(IDartigo>0),
+tituloR varchar not null,
+nomeR varchar not null, 
+Ano integer check(ano>0),
+primary key(IDartigo)
+);
+
+create table revistapaginas(
+IDartigo integer check(IDartigo>0),
+paginas integer check(IDartigo>0),
+primary key(IDartigo),
+foreign key(IDartigo) references artigo on delete restrict
+);
+
+create table revistames(
+IDartigo integer check(IDartigo>0),
+mes varchar not null,
+primary key(IDartigo),
+foreign key(IDartigo) references artigo on delete restrict
+);
+
+create table revistanumero(
+IDartigo integer check(IDartigo>0),
+numerorevista integer check (IDartigo>0),
+primary key(IDartigo),
+foreign key(IDartigo) references revista on delete restrict
+);
+
+create table conferencia(
+IDartigo integer check(IDartigo>0),
+TituloConfArtigo varchar not null,
+TituloConferencia varchar not null,
+AnoConf integer check(AnoConf>0),
+primary key(IDartigo),
+foreign key(IDartigo) references artigo on delete restrict
+);
+
+create table conferencialocal(
+IDartigo integer check(IDartigo>0),
+LocalConf varchar not null,
+primary key(IDartigo),
+foreign key(IDartigo) references artigo on delete restrict
+);
+
+create table conferenciapaginas(
+IDartigo integer check(IDartigo>0),
+paginas integer check(paginas>0),
+editora varchar not null,
+primary key(IDartigo),
+foreign key(IDartigo) references artigo on delete restrict
+);
+
+create table patente(
+IDpatente integer check(IDpatente>0),
+DataCriacao timestamp not null,
+Descricao varchar,
+periodo integer check(periodo>0),
+primary key(IDpatente)
+);
+
+create table tem(
+IDpatente integer check(IDpatente>0),
+nomeA multiplo,
+primary key(IDpatente,nomeA),
+foreign key(IDpatente) references patente on delete restrict,
+foreign key (nomeA) references autor on delete restrict
+);
+
+create table feitoem(
+IDpatente integer check(IDpatente>0),
+IDartigo integer check(IDartigo>0),
+nomeI varchar not null,
+locale varchar not null,
+primary key(IDpatente,IDartigo,nomeI,locale),
+foreign key(IDpatente) references patente on delete restrict,
+foreign key(IDartigo) references artigo on delete restrict,
+foreign key(nomeI,locale) references instituicao on delete restrict
+);
+
+create table bibliometria(
+IDBiblio varchar not null,
+DataIndex timestamp not null,
+IDartigo integer check(IDartigo>0),
+primary key(IDartigo,IDBiblio),
+foreign key (IDartigo) references artigo on delete restrict
+);
+
+/*9*/
+
+insert into autor values(Row('Joao','Calhau'));
+insert into autor values(Row('Ricardo','Benedito'));
+insert into autor values(Row('Jose','Piventa'));
+insert into autor values(Row('Pedro','Vieira'));
+insert into autor values(Row('Joao','Cenas'));
+
+insert into emailautor values(row('Joao','Calhau'),'jc@gmail.com');
+insert into orcidautor values(row('Ricardo','Benedito'),123);
+insert into degoisautor values(row('Jose','Piventa'),12345678);
+insert into emailautor values(row('Pedro','Vieira'),'pv@gmail.com');
+
+insert into instituicao values('Universidade de Evora','Evora');
+insert into instituicao values('Universidade do ALgarve','Faro');
+insert into instituicao values('Universidade Nova','Lisboa');
+insert into instituicao values('ICAAM','Evora');
+
+insert into vinculo values(row('Joao','Calhau'),'24-10-2014 10:31','24-10-2015 10:31','Universidade de Evora','Evora');
+insert into vinculo values(row('Jose','Piventa'),'6-9-2014 15:00','6-9-2015 15:00','ICAAM','Evora');
+insert into vinculo values(row('Ricardo','Benedito'),'24-10-2014 10:31','24-10-2015 10:31','Universidade de Evora','Evora');
+insert into vinculo values(row('Pedro','Vieira'),'2-5-2013 12:04','2-4-2014 12:04','Universidade Nova','Lisboa');
+insert into vinculo values(row('Ricardo','Benedito'),'14-11-2014 16:31','4-9-2015 10:31','Universidade Nova','Lisboa');
+
+insert into artigo values(1987644);
+insert into artigo values(1893737);
+insert into artigo values(1927312);
+insert into artigo values(1293723);
+insert into artigo values(1974592);
+insert into artigo values(1987655);
+insert into artigo values(1293724);
+insert into artigo values(3792370);
+
+insert into faz values(1974592,row('Ricardo','Benedito'));
+insert into faz values(1974592,row('Joao','Calhau'));
+insert into faz values(1974592,row('Jose','Piventa'));
+insert into faz values(1293723,row('Pedro','Vieira'));
+insert into faz values(1987644,row('Joao','Calhau'));
+insert into faz values(3792370,row('Ricardo','Benedito'));
+insert into faz values(1293724,row('Jose','Piventa'));
+insert into faz values(1987655,row('Pedro','Vieira'));
+insert into faz values(1893737,row('Pedro','Vieira'));
+insert into faz values(1927312,row('Ricardo','Benedito'));
+
+insert into capitulo values(1987644,'Adventure of Sergio','Life of Sergio',2014);
+insert into capitulo values (1893737,'Budja Secrets','Khravarg Unleashed',2013);
+insert into capitulopaginas values(1893737,345,'Pinguins Editor');
+
+insert into revista values(1927312,'Budja Surreal','Mystery Magazine',2002);
+insert into revista values(1293723,'Stone Bridge Discovery','Science Weekly',2009);
+insert into revista values(1974592,'Kebab Assado no Forno','Mad Cooking Magazine',2014);
+
+insert into revistapaginas values(1974592,3);
+insert into revistapaginas values(1293723,5);
+
+insert into revistames values(1974592,'Maio');
+insert into revistames values(1293723,'Dezembro');
+
+insert into revistanumero values(1927312,8);
+insert into revistanumero values(1293723,6);
+insert into revistanumero values(1974592,6);
+
+insert into conferencia values(1987655,'Andre no Pais da Maravilhas','Wonderland',2014);
+insert into conferencia values(1293724,'Carregadolini','LeagueofLegends',2013);
+insert into conferencia values(3792370,'Benfica e a crise','Futebol Nacional',2014);
+
+
+insert into conferencialocal values(3792370,'Evora');
+insert into conferencialocal values(1987655,'Inglaterra');
+
+insert into conferenciapaginas values(1293724,7,'PortoEditora');
+
+insert into patente values(123456,'29-10-2014 10:31','Uma bela patente',20);
+insert into patente values(654321,'29-4-2014 17:39','Outra bela patente',25);
+insert into patente values(613245,'13-8-2014 13:57','Uma belissima patente',20);
+insert into patente values(435261,'24-12-2013 10:31','Bela cena',30);
+
+insert into tem values(435261,row('Joao','Calhau'));
+insert into tem values(654321,row('Jose','Piventa'));
+insert into tem values(123456,row('Ricardo','Benedito'));
+
+insert into feitoem values(435261,1987644,'Universidade de Evora','Evora');
+insert into feitoem values(654321,3792370,'ICAAM','Evora');
+
+insert into bibliometria values('Scopus','21-06-2014 13:00',1974592);
+insert into bibliometria values('ISIWK','17-08-2014 19:56',1293723);
+
+
+/*10*/
+
+/*a*/
+select tituloR from revista natural inner join faz natural inner join autor natural inner join orcidautor where orcid=123;
+
+/*b*/
+select tituloR from bibliometria natural inner join revista natural inner join faz natural inner join autor natural inner join orcidautor where orcid=123 and IDbiblio='Scopus';
+
+/*c*/
+select distinct count(nomeA) from bibliometria natural inner join revista natural inner join faz natural inner join autor natural inner join vinculo natural inner join instituicao where IDbiblio='Scopus' and (nomeI='Universidade de Evora' or nomeI='ICAAM');
+
+/*d*/
+select distinct count(IDpatente) from patente natural inner join tem natural inner join autor natural inner join vinculo natural inner join instituicao where nomeI='Universidade de Evora' and date_part('year',datacriacao)=2014 and periodo>2;
+
+/*e*/
+select IDpatente from patente where date_part('year',datacriacao)=2014 UNION select IDartigo from capitulo where ano=2014 UNION select IDartigo
+   from capitulo where ano=2014 UNION select IDartigo from conferencia where anoconf=2014 UNION select idartigo from revista where ano = 2014;
+
+/*f*/
+with npaginas(artigos) as (select count(idartigo) from capitulopaginas UNION ALL select count(idartigo) from revistapaginas UNION ALL select count(idartigo) from conferenciapaginas)
+select sum(artigos) from npaginas;
+
+/*g*/
+with nova(cenas,artigos) as (select nomeA,count(IDartigo) from autor natural inner join faz natural inner join artigo natural inner join bibliometria where date_part('year',dataindex)=2014 group by nomeA), maxarti(artigos) as (select max(artigos) from nova)
+select cenas from maxarti natural inner join nova;
+
+/*h*/
+with counter(artigo,nAutor) as (select idartigo,count(nomeA) from faz natural inner join capitulo where ano = 2014 group by idartigo UNION ALL select idartigo,count(nomeA) from faz natural inner join revista where ano = 2014 group by idartigo UNION ALL select idartigo,count(nomeA) from faz natural inner join conferencia where anoconf = 2014 group by idartigo), maxArtigo(nAutor) as (select max(nAutor) from counter)
+select artigo from counter natural inner join maxArtigo;
+
+/*i*/
+with autores(novonome,ninstituicoes) as (select nomeA,count(nomeI) from vinculo group by nomeA) , maxautor(ninstituicoes) as (select max(ninstituicoes) from autores)
+select novonome from maxautor natural inner join autores;
+
+/*j*/
+select count(IDartigo) from conferencia natural inner join conferencialocal where localconf='Evora';
+
+
+/*31500*/
+/*31626*/

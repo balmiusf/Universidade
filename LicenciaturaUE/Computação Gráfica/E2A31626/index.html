@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" />
+        <title> Exercicio 2 </title>
+        <style type = "text/css">
+        body {
+            background-color: white;
+            font-family: sans-serif;
+        }
+        th {
+        	padding: 1em;
+        	background-color:#9F1C33;
+            color:white;
+        }
+        td {
+        	padding: 0.5em;
+            background-color: #EEE;
+            width: 50%;
+            text-align: center;
+        }
+        table {
+        	width:100%;
+        }
+        h1,h2 {
+        	text-align: center;
+        }
+
+
+        </style>
+     </head>
+    	<h1>Exercício n.º 2 &mdash; Aluno n.º 31626</h1>
+    	<table>
+			<tr>
+				<th>Original</th>
+				<th>Reprodução</th>
+			</tr>
+    		<tr>
+                <td><img src="peixes.jpg" style = "width:100%"></img></td>
+				<td> <svg id = "reproducao" width="100%" viewbox="0 0 460 313" style="width:100%">
+
+            <!-- filtro -->
+
+                <filter id="blur" y="-5" height="40">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+                </filter>
+                <filter id = "blur2">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1"/>
+                </filter>
+
+
+            <!-- gradientes   -->
+
+             <linearGradient id = "barbatana">
+            <stop offset = "50%" stop-color = "rgb(15,14,23)"/>
+            <stop offset = "100%" stop-color = "rgb(28,25,39)" stop-opacity = "1.0"/>
+            
+            </linearGradient>
+
+            <linearGradient id = "mancha" gradientTransform = "rotate(0)">
+            <stop offset = "40%" stop-color = "rgb(28,25,44)" stop-opacity = "0.5"/>
+            <stop offset = "60%" stop-color = "rgb(214,62,46) " stop-opacity = "0.8"/>
+            <stop offset = "100%" stop-color = "rgb(28,25,50)" stop-opacity = "0.5"/>
+            </linearGradient>
+            
+            <linearGradient id = "corpo" gradientTransform = "rotate(-2)">
+            <stop offset = "30%" stop-color = "rgb(28,25,39)"/>
+            <stop offset = "40%" stop-color = "rgb(28,25,44)"/>
+            <stop offset = "60%" stop-color = "rgb(28,25,44)"/>
+            <stop offset = "100%" stop-color = "rgb(28,25,44)"/>
+            </linearGradient>
+            
+            <linearGradient id = "focoluz2" x1="0%" y1="0%" x2="0%" y2="100%" gradientTransform = "rotate(-110)">
+            <stop offset = "5%" stop-color = "rgb(28,25,39)"/>
+            <stop offset = "20%" stop-color = "rgb(35,37,77)" stop-opacity = "0.6"/>
+            <stop offset = "70%" stop-color = "rgb(35,41,90) " stop-opacity = "1.0"/>
+            
+            </linearGradient>
+
+            <linearGradient id = "sombra" gradientTransform = "rotate(-20)">
+            <stop offset = "5%" stop-color = "rgb(28,25,44)  " stop-opacity = "1"/>
+            <stop offset = "40%" stop-color = " rgb(7,7,16) " stop-opacity = "0.7"/>
+            </linearGradient>
+            
+            <linearGradient id = "manchaBoca" gradientTransform = "rotate(97)">
+              <stop offset = "59%" stop-color = "rgb(54,64,123)  " stop-opacity = "1"/>
+              <stop offset = "60%" stop-color = " rgb(216,233,248) " stop-opacity = "0.3"/>
+            </linearGradient>
+
+            <radialGradient id = "laranjaCorpo">
+              <stop offset = "0%" stop-color = "rgb(251,106,46)  "/>
+              <stop offset = "90%" stop-color = "rgb(243,73,30) "/>
+       
+            </radialGradient>
+            
+            <linearGradient id = "laranjaCauda" gradientTransform = "rotate(60)">
+              <stop offset = "55%" stop-color = "rgb(251,106,46)  "/>
+              <stop offset = "70%" stop-color = "rgb(243,73,30) "/>
+              <stop offset = "90%" stop-color = "rgb(252,94,38)  "/>
+            </linearGradient>
+
+            <linearGradient id = "focoluz" gradientTransform = "rotate(10)">
+              <stop offset = "30%" stop-color = "rgb(28,25,39)"/>
+              <stop offset = "60%" stop-color = "rgb(52,50,87) " stop-opacity = "0.7" />
+              <stop offset = "90%" stop-color = "rgb(28,25,39)"/>
+            </linearGradient>
+
+            <linearGradient id = "cauda" gradientTransform = "rotate(-15)">
+              <stop offset = "39%" stop-color = "rgb(240,242,253)" stop-opacity = "0.8"/>
+              <stop offset = "58%" stop-color = "rgb(58,50,97)  "/>
+              <stop offset = "75%" stop-color = "rgb(46,39,79)"/>
+              <stop offset = "85%" stop-color = "rgb(28,25,44)"/>
+            </linearGradient>
+
+            <!--background --> 
+            <rect x = "0" y = "0" width = "460" height = "313" fill = "grey"/>
+
+             <!-- barbatana dorsal superior  -->
+
+               <path 
+               fill = "url(#barbatana)"
+               stroke = "rgb(15,14,23)"
+               transform = "translate(159,79)"
+               d = "
+               M -30 92
+               Q -53 94 -40 71
+               Q -20 45 30 9
+               L 32 8
+               Q 116 -35 178 -28
+               Q 181 -27 187 -25
+               L 186 45
+               L -30 92
+               "
+               />
+           
+               <!-- detalhe -->
+               <!-- parte laranja -->
+
+               <path
+               fill = "rgb(213,92,60)"
+
+               fill-opacity = "0.2"
+               transform = "translate(119.5,170.5)"
+               d = "
+               M -1 0
+               Q 9 -5 17 -6
+               Q 18 -7 20 -7
+               Q 18 -4 19 -2
+               Q 12 1 3 1
+               Q 1 0 0 0"/>
+
+               <ellipse cx = "130" cy ="168" rx = "3" ry = "0.5" fill = "rgb(15,14,23)" transform = "rotate(-15 130 167)"/>
+
+               <path
+               fill = "rgb(213,92,60)"
+               stroke = "rgb(213,92,60)"
+               transform = "translate(143,160)"
+               d = "
+               M -5 8
+               Q -4 2 -1 0 
+               L 0 0
+               Q 36 -50 83.5 -74.5
+               L 83.5 -25
+               L -5 8"/>
+
+               <!-- parte branca interior -->
+               <path 
+               fill = "rgb(240,242,253)"
+               fill-opacity = "0.8"
+               stroke = "rgb(240,242,253)"
+               transform = "translate(144,163)"
+               d = "
+               M 1 3 
+               Q 0 3 0 0
+               L 0 0 
+               Q 48 -69 103 -87
+               L 102 -76
+               L 1 3
+               "/>
+
+              <path
+              fill = "rgb(28,25,44)"
+              transform = "translate(245,72)"
+              d= "
+              M 0 3
+              Q 45 -16 97 -20
+              Q 97 -20 101 -18 
+              L 97 5
+              L 12 10
+              L 0 2"/>
+
+               <!-- parte branca exterior da barbatana   -->
+               <path 
+              fill = "rgb(240,242,253)"
+              fill-opacity = "0.8"
+              stroke = "rgb(240,242,253)"
+              stroke-width = "0.5"
+              transform = "translate(112.5,162.5)"
+              d = "
+              M 1 0 
+              Q 3 -6.5 4.5 -10.5
+              Q 26.5 -39.5 76.5 -75
+              Q 105.5 -90.5 118.5 -94
+              Q 107.5 -89.5 86.5 -79.5
+
+              Q 81.5 -77.5 78.5 -75.5
+              Q 76.5 -72.5 74.5 -72.5
+              Q 72.5 -71.5 70.5 -70.5 
+              Q 68.5 -67.5 64.5 -65.5
+              Q 62.5 -65.5 62.5 -63.5
+              Q 60.5 -63.5 59.5 -61.5
+              Q 57.5 -59.5 56.5 -59
+              Q 52.5 -57.5 48.5 -53
+              Q 47.5 -53.5 45.5 -50
+              Q 37.5 -44.5 24.5 -33
+              Q 21.5 -30.5 20.5 -28
+              Q 18.5 -28.5 16.5 -23.5 
+              Q 12.5 -22.5 11.5 -17.5
+              Q 8.5 -16.5 7.5 -14.5 
+              Q 0.5 -2.5 1 2.5
+              L 1 0
+              "/>
+
+              <!-- a direita da barbatana dorsal inferior --> 
+               <path 
+               fill = "rgb(245,213,240)"
+               stroke = "rgb(245,213,240)"
+               transform = "translate(298,244)"
+               d  = "
+               M -33 -3
+               Q -24 -1 -10 -2
+               Q 13 -5 45 -17
+               L 43 -27
+               L -38 -4
+              "
+               />
+
+               <!-- barbatana dorsal inferior -->
+              <path 
+              fill = "rgb(15,14,23)"
+               stroke = "rgb(15,14,23)"
+               transform = "translate(195,256)"
+               d = "
+               M -68 -42
+               Q -69 -38 -66 -36
+               Q 0 0 74 -18
+               Q 76 -19 83 -19
+               Q 95 -20 123 -27 
+               L 131 -160
+               L -68 -44
+               "/>
+
+               <path
+               fill = "rgb(245,213,240)"
+               transform = "translate(288,235)"
+               d = "
+               M 0 0
+               Q 9.5 -2 19 -6
+               L 19 -6 
+               Q 8 -1 0 0
+
+               "/>
+
+
+               <!-- figura laranja -->
+               <path
+               fill = "rgb(213,92,60)"
+               stroke = "rgb(213,92,60)"
+              transform = "translate(154,205)"
+              d = "
+              M 4 -2
+              Q -1 -4 0 0
+              L 0 0
+              Q 56 26 102 25
+              L 102 25
+              L 4 -2
+              "/> 
+
+              <!-- parte branca-->
+              <path
+              fill = "rgb(240,242,253)"
+              fill-opacity = "1.0"
+              stroke = "rgb(240,242,253)"
+              transform = "translate(128,220)"
+              d = "
+              M 0 0
+              Q 56 34 137 20
+              
+              Q 131 22 128 22
+              Q 108 24 107 23
+              Q 93 26 83 23
+              Q 81 22 72 22.5
+              Q 68 22 63 21 
+              Q 28 16 0 0
+              "/>
+
+              <!-- efeito sombra -->
+             <path 
+              fill = "none"
+              stroke ="black"
+              transform = "translate(126,215)"
+              d = "
+              M 0 0
+              Q 14 -11 27.5 -13
+              Q 80 11 120 14
+              "/>
+
+            <!-- corpo -->
+            <!-- estrutura -->
+             <path 
+              fill = "url(#corpo)"
+              stroke = "rgb(28,25,44)"
+              transform = "translate(344, 54)"
+              d = "
+                M 0 0 
+                Q 31 8 48 23
+                Q 64 36 88 85
+                L 74 118
+                
+                Q 64 131 48 145
+                Q 27 164 -3 174
+                Q 2 171 -5 173 
+
+                L -4.5 173
+                Q -11 174 -16 173
+                Q -24 176 -29 174
+
+
+                Q -60 180 -88 176
+
+                Q -129 174 -189 148
+                L -198 110
+                Q -170 65 -131 40
+                Q -80 9 0 0
+                "
+              />
+
+
+              <path
+              fill = "rgb(40,31,37) "
+              fill-opacity = "0.3"
+              transform = "translate(375,118)"
+              d = "
+              M 0 0
+              Q 13 -9 26 -8 
+              Q 55 32 43 35
+              Q 22 48 0 0"/>
+
+              <!-- detalhe no corpo -->
+              <path
+              fill = "url(#focoluz)"
+              fill-opacity = "1.0"
+              transform = "translate(194,144)"
+              d = "
+              M -39 58
+              L 0 0
+              Q 103 -60 132 -52 
+              L 166 -84
+              L 150 -90
+              Q 17 -80 -48 20
+              L -39 58
+              "/>
+
+              <path
+              fill = "none"
+              stroke = "rgb(35,32,59)"
+              stroke-opacity = "0.7"
+               transform = "translate(194,144)"
+              d = "
+              M 0 0
+              Q 103 -60 132 -52 
+              "/>
+              
+              <!-- mancha branca por baixo do olho-->
+            <path
+            fill = "rgb(216,233,248)"
+            stroke = "rgb(216,233,248)"
+            transform = "translate(344,136)"
+            d = "
+            M 6 13
+            Q -3 4 1 1
+            Q 15 0 16 9 
+            L 16.5 8.3
+            Q 24 18 25 18
+            Q 38 25 23 23
+            Q 20.5 21 17 20
+            Q 10 20 6 13 
+             "/>
+            
+            <path 
+            fill = "rgb(216,233,248)"
+            fill-opacity = "0.1"
+            transform = "translate(370,160)"
+            d = "
+            M 0 0
+            L 9 2
+            L 22 7
+            L 25 6
+            L 24 6
+            L 5 -1
+            L 0 0 "/>
+
+            <!-- manchas desfocadas ao lado da barbatana -->
+            <ellipse cx="360" cy="191" rx="30" ry="14"
+            style="stroke: none; fill: rgb(42,40,61); filter: url(#blur);" transform = "rotate(-49 360 191)"/> 
+
+             <ellipse cx="348" cy="192" rx="20" ry="16"
+             style="stroke: none; fill: rgb(42,40,61); filter: url(#blur);" transform = "rotate(0 360 191)"/>
+
+
+             <!-- barbatana no corpo -->
+             <!-- estrutura (tem um efeito desfocado) -->
+             <path
+             fill = "rgb(41,45,79)"
+             fill-opacity = "0.5"
+             filter = "url(#blur)"
+             transform = "translate(344,161)"
+             d = "
+             M 0 0
+             Q -50 -5 -44 22
+             L -40 22
+             L -40 26
+             C -44,32 -42,33 -38,30
+             Q -18 15 -11 16
+             Q 5 3 0 0  
+             "/> 
+
+              <path
+             fill = "rgb(42,40,61)"
+             fill-opacity = "0.5"
+             transform = "translate(304,187)"
+             d = "
+             M 0 0
+             C -4,6 -2,7 2,4
+             Q 24 -8 29 -11
+             Q 15 -9 6 -3
+             Q 3 0 0 0
+             "/>
+
+            <path
+            fill = "rgb(216,233,248)"
+            fill-opacity = "0.1"
+            filter = "url(#blur2)"
+            transform = "translate(309,165)"
+            d = "
+            M -1 9
+            Q 0 0 8 0
+            "/>
+
+             <!-- parte que conecta o corpo a barbatana -->
+             <path
+             fill = "rgb(55,60,81)"
+             transform = "translate(352,160)"
+             d = "
+             M 0 0
+             Q -5 2 -26 4
+             Q -27 4 -27 5
+             L -24 5 
+             L -23 4.3  
+             L -9 4
+             L 3 2.5 
+             Q 6 -1 0 0 "/>
+
+             <!-- efeito sombra dessa parte -->
+             <path
+             stroke = "rgb(11,9,20)"
+             stroke-width = "0.2"
+             transform = "translate(352,160)"
+             d = "
+             M -27 5
+             L -24 5 
+             L -23 5  
+             L -9 4
+             L 0 4  "/>
+
+             <!-- marcas no interior da barbatana -->
+             <path
+             stroke ="rgb(28,25,44)" 
+             transform = "translate(317,170)"
+             d = "
+             M 0 0
+             Q 9 -3 18 -3
+             Q 9 -3 0 0 "/>
+
+             <path
+             stroke ="rgb(28,25,44)" 
+             transform = "translate(316,174)"
+             d = "
+             M 0 0
+             Q 9 -3 19 -3
+             Q 9 -3 0 0 "/>
+
+             <path
+             stroke ="rgb(28,25,44)" 
+             transform = "translate(317,177)"
+             d = "
+             M 0 0
+             Q 9 -3 10 -3
+             Q 9 -3 0 0 "/>
+
+             <!-- sombra provacada pela barbatana -->
+             <path
+             fill = "url(#sombra)"
+
+             transform = "translate(317,185)"
+             d = "
+             M 0 0
+             Q 24 -13 31 -21
+             Q 33 -22 35 -22
+             Q 32 -12 35 -15
+             Q 23 -2 14 20
+             "/>
+
+              <!-- cauda -->
+              <!-- estrutura -->
+              <path 
+              fill =  "url(#cauda)"
+              transform = "translate(146,164)"
+              d = "
+              M 0 0
+              Q -13 10 -60 8
+              Q -102 -2 -145 36
+              L -142 36
+              Q -102 12 -90 22
+              L -70 84
+              Q -79 90 -100 90
+              Q -102 90 -104 92
+              Q -102 92 -100 93
+              Q -84 93 -85 94
+              Q -58 97 -36 69 
+              Q -14 39 9 38
+               "
+               />
+
+              <!-- figura preta -->
+              <path 
+              fill = "rgb(56,41,50) "
+      
+              transform = "translate(33,182)"
+              d = "
+              M 0 0
+              Q 18 -7 35 3
+              Q 35 2 34 2
+              Q 40 13 40 16
+              Q 40 17 39 17
+              Q 45 22 43 23
+              L 49 37
+              Q 50 37 52 41
+              L 55 45
+              L 54 47
+              
+              Q 59 57 39 74 
+              Q 69 64 90 35
+              Q 59 10 78 -10
+              L 53 -10  
+              L 49 -9.5
+              Q 21 -12 0 0"
+              />
+
+                 <!-- pequenos rectangulos pretos -->
+            <rect x = "75" y = "214" width = "6" height = "0.7" fill = "rgb(56,41,50)"  fill-opacity = "0.5" transform = "rotate(-20 74 215)"/>
+
+            <rect x = "85" y = "209" width = "8" height = "1.2" fill = "rgb(56,41,50)" fill-opacity = "0.6" transform = "rotate(-20 85 209)"/>
+
+            <rect x = "83" y = "225" width = "7" height = "0.6" fill = "rgb(56,41,50)"  fill-opacity = "0.5" transform = "rotate(-20 84 227)"/>
+
+            <rect x = "72" y = "199" width = "6" height = "0.2" fill = "rgb(56,41,50)" transform = "rotate(-25 72 199)"/>
+
+             <rect x = "81" y = "202" width = "2" height = "0.2" fill = "rgb(56,41,50)" transform = "rotate(-25 82 202)"/>
+
+            <rect x = "73" y = "206" width = "6" height = "0.2" fill = "rgb(56,41,50)" transform = "rotate(-25 74 206)"/>
+            
+            <rect x = "79" y = "220" width = "6" height = "0.2" fill = "rgb(56,41,50)" transform = "rotate(-20 79 220)"/>
+
+            <rect x = "87" y = "216.5" width = "6" height = "0.5" fill = "rgb(56,41,50)" fill-opacity = "0.5" transform = "rotate(-27 89 216)"/>
+
+            <rect x = "91" y = "222" width = "6" height = "0.1" fill = "rgb(56,41,50)" fill-opacity = "0.9" transform = "rotate(-25 91 222)"/>
+
+              <!-- figura laranja -->
+              <path 
+              fill = "url(#laranjaCauda)"
+              stroke =  "url(#laranjaCauda)"
+              transform = "translate(46,178)"
+              d = "
+              M 0 0
+              Q 15 0 27 6
+
+              Q 26 9 30 11
+              L 30 13
+              Q 32 16 32 19
+              Q 34 21 36 24
+              Q 35 26 41 32
+
+              Q 42 36 45 37 
+              Q 43 41 46 42
+              Q 47 45 49 46
+              Q 49 47 48 48
+
+              L 47 49 
+              L 48 51 
+
+              Q 48 57 36 72
+              Q 56 62 72 42 
+              Q 66 38 62 33
+              
+              Q 63 29 61 28
+              Q 61 24 58 23
+              
+              Q 58 18 55 17
+              Q 53 10 53 -1
+              Q 52 -5 41 -4.5
+              L 38 -4
+              Q 11 -5 -1 0
+              L 0 0 
+              "/>
+
+              <!-- mancha mais a esquerda da cauda -->
+              <path
+              fill = "rgb(153,161,184)"
+              transform = "translate(56,186)"
+              d = "
+              M 0 0
+              L 16 51
+              Q 20 61 8 67
+              Q 34 62 16 39
+              L 14 34
+              Q 10 33 13 29
+              L 9 24
+              L 10 22
+              Q 5 19 6 14
+               "/>
+
+               <path
+                fill = "rgb(153,161,184)"
+              transform = "translate(56,186)"
+              d = "
+              M -46 10
+              Q -11 -8 0 0
+              Q 6 6 5 17
+              L -3 1 
+              Q -13 -3 -46 11"/>
+              
+              <!-- corpo -->
+         <!-- mancha laranja no corpo -->
+              <path 
+              fill = "url(#laranjaCorpo)"
+              stroke = "url(#laranjaCorpo)"
+              transform = "translate(128,190)"
+              d = "
+              M 13 -8 
+              Q -5 1 16 1
+              
+              L 16 2
+              Q 102 37 93 -23
+              L 90 -23
+              
+              L 90 -23
+              Q 93 -23 92 -28
+              Q 85 -46 62 -46
+
+              L 65 -46
+              Q 53 -58 26 -23
+              L 25 -20
+ 
+              L 15 -11
+              L 14 -10
+              L 13 -8
+              
+              "/>
+
+              <!-- mancha dentro da mancha laranja -->
+              <path
+              fill = "url(#mancha)"
+              transform = "translate(135,188)"
+              d = "
+              M 0 0
+              Q 4 -5 18 -4
+              Q 19 -3 18 -2
+              Q 4 2 0 0"/>
+              <!-- boca -->
+              <!-- estrutura -->
+            <path
+            fill = "rgb(28,25,44)"
+            stroke = "rgb(28,25,44)"
+            transform = "translate(432,139)"
+            d = "
+            M 0 0
+            Q 9 6 9 10
+            Q 9 13 3 13
+            Q 0 14 3 17
+            Q 9 22 -4 26
+            L -14 33
+            "/>
+
+            <!-- detalhe na boca -->
+              <path
+              fill = "rgb(56,68,72)"
+              transform = "translate(432,157)"
+              d = "
+              M 5 -5
+              Q 6 -9 9 -6
+              Q 7 -3 5 -5
+
+              M 0 0
+              Q 1 4 5 4
+              Q 6 2 5 0
+              Q 5 2 4 2
+              Q 1 2 0 0"/>
+
+              <path
+              fill = "black"
+              transform = "translate(432,155)"
+              d = "
+              M 1 -1
+              Q 6 6 0 1"/>
+
+             <!-- mancha no lado esquerdo da boca --> 
+            <path
+            fill = "rgb(216,233,248)"
+            fill-opacity = "0.5"
+            stroke = "rgb(216,233,248)"
+            stroke-opacity = "0.1"
+            transform = "translate(423,157)"
+            d = "
+            M 0 0
+            Q 2 0 4 3 
+            Q 4 9 3 10 
+            L -2 13.5
+            Q -2 10 0 7
+            Q 0 2 -1 0"/>
+
+           
+            <!-- mancha por cima da mancha anterior -->
+            <path 
+            fill = "url(#manchaBoca)"
+            
+            transform = "translate(423,156)"
+            d = "
+            M 0 0
+            L 4 2
+            L 5 -8
+            Q 4 -11 6 -12
+            C 10,-14 7,-18 3,-13
+            Q 3 -11 1 -9
+            L 1 -5
+            Q 0.5 -2.5 0 0"/>
+ 
+
+            <!-- efeito luz por cima da boca -->
+             <path
+            fill = "url(#focoluz2) "
+            transform = "translate(415,120)"
+            d = "
+            M 0 0
+            Q 8 16 11 23 
+            Q 13 19 16 21
+            Q 13 10 2 -7
+            "/>
+
+
+              <!-- olho -->
+
+            <ellipse cx = "372" cy = "102" rx = "10" ry = "12" fill="rgb(33,31,46) " fill-opacity = "0.2" stroke = "rgb(11,9,20)" stroke-width = "0.1" transform = "rotate(-47 371 102)"/>
+
+           
+            <ellipse cx = "371" cy = "102" rx = "4.5" ry = "6.5" fill = "rgb(11,9,20)" stroke = "rgb(64,62,75)" stroke-width = "0.2" stroke-opacity = "1.0" transform = "rotate(-45 371 102)"/>
+
+            <path 
+            fill = "rgb(11,9,20)"
+            fill-opacity = "0.8"
+            transform = "translate(360,102)"
+            d = "
+            M 0 0
+            Q 1.5 -13.5 16 -10
+            Q 0 -16 0 0
+
+            M 7 8
+            Q 20 15 23 1
+            Q 20 13 7 8"/>
+
+            <!-- pontos brancos a volta do olho -->
+            <path
+            fill = "rgb(221,238,244)"
+            fill-opacity = "0.1"
+            transform = "translate(368,106)"
+            d = "
+            M 0 0
+            Q 3 2 6 3
+            Q 1 2 -1 4 
+            Q -1 2 0 0 "/>
+
+            <!-- colado ao olho (em cima)-->
+            <ellipse cx = "372" cy = "97" rx = "0.7" ry = "0.7" fill = "rgb(221,238,244)" fill-opacity = "0.7" filter = "url(#blur2)"/>
+
+            <!-- arco por cima da a mancha indicada acima, contido no anel exterior -->
+            <path
+            fill = "rgb(221,238,244)"
+            fill-opacity = "0.05"
+             transform = "translate(364,95)"
+            d = "
+            M 0 0
+            Q 6 -3 13 1
+            Q 6 -2 0 0"/>
+
+            <!-- arco por cima do anel exterior do olho -->
+            <path
+            fill = "rgb(53,49,74)"
+            fill-opacity = "0.3"
+            transform = "translate(360,89)"
+            d = "
+            M 0 0
+            Q 13 -9 22 1
+            Q 21 3 20 1
+            Q 13 -5 2 0
+            L 0 0"/>
+
+          </svg>
+                </td>
+			</tr>
+    	</table>
+        <h2>Engenharia Informática, Computação Gráfica &mdash; 2014-15</h2>
+    </body>
+</html>
+

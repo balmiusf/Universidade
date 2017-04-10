@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" />
+        <title>Monumento - Porta do Raimundo </title>
+        <script src="library/x3dom-full.js"></script>
+        <link rel="stylesheet" href="library/x3dom.css">
+        <style type = "text/css">
+        body {
+            background-color: white;
+            font-family: sans-serif;
+        }
+        th {
+        	padding: 1em;
+        	background-color:#9F1C33;
+            color:white;
+        }
+        td {
+        	padding: 0.5em;
+            background-color: #EEE;
+            width: 50%;
+            text-align: center;
+        }
+        table {
+        	width:100%;
+        }
+        h1,h2 {
+        	text-align: center;
+        }
+        </style>
+    </head>
+    <body>
+    	<h1>Exercício n.º 4 &mdash; Aluno n.º 31626</h1>
+    	<table>
+			<tr>
+				<th>Original</th>
+				<th>Reprodução</th>
+			</tr>
+    		<tr>
+                <td><img src="monumento.jpg" style = "width:100%"></img></td>
+				<td>
+                       <x3d style="width:100%" style = "height:100%" >
+            <scene>
+                    <Viewpoint position="4.25982 -158.38256 26.80238" orientation="0.99961 -0.01865 -0.02072 1.43547" description=""></Viewpoint>
+
+
+ <transform translation = "9 0 -1" >
+    <Shape DEF = "BASE">
+        <Appearance>
+               <ImageTexture url ="texturas/relva.png" />
+        </Appearance>
+        <box size = "200 50 2" />
+    </Shape>
+ </transform>
+
+<!-- group que corresponde a construcao de um TORRE -->
+<Group DEF = "TORRE">
+
+<!-- base do TORRE -->
+<Shape>
+ <Appearance>
+       <ImageTexture url ="texturas/TEXTURA_TORRE_BASE.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid="false" colorPerVertex="true"
+        coordIndex="                  
+                    1 2 3 4 5 6 7 8 -1 ">
+
+    <Coordinate
+        point= "0 0 0
+
+                4 4 27.5, 4 2 27.5, 6 0 27.5
+                8 0 27.5, 10 2 27.5, 10 4 27.5
+                8 6 27.5, 6 6 27.5
+                " />
+
+
+    </IndexedFaceSet>
+
+    </Shape>
+
+<!-- seccoes nao contem a parte superior do TORRE-->
+<!-- cada seccao contem 4 faces na vertical -->
+<!-- primeira seccao do TORRE octagonal -->
+    <Shape DEF = "PRIMEIRA_SECCAO">
+ <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_SEGUNDA_SECCAO.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid="false" colorPerVertex="true"
+        coordIndex=" 1 2 10 9 -1                                      
+                 
+
+                    9 10 18 17 -1                               
+                   
+
+                    17 25 26 18 -1                                                     
+                  
+                       
+                    25 33 34 26 -1                   
+                    ">
+
+    <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6
+
+                4.5 4 6.5, 4.5 2 6.5, 6 0.5 6.5
+                8 0.5 6.5, 9.5 2 6.5, 9.5 4 6.5
+                8 5.5 6.5, 6 5.5 6.5 
+
+                4.5 4 27, 4.5 2 27, 6 0.5 27
+                8 0.5 27, 9.5 2 27, 9.5 4 27
+                8 5.5 27, 6 5.5 27 
+
+                4 4 27.5, 4 2 27.5
+                " />
+
+    </IndexedFaceSet>
+
+    </Shape>
+
+<!-- segunda seccao do TORRE octagonal -->
+    <Shape DEF = "SEGUNDA_SECCAO">
+ <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_SEGUNDA_SECCAO.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid="false" colorPerVertex="true"
+        coordIndex="    2 10 11 3 -1
+                        10 18 19 11 -1     
+                        18 26 27 19 -1 
+                        26 34 35 27 -1     ">
+
+    <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6
+
+                4.5 4 6.5, 4.5 2 6.5, 6 0.5 6.5
+                8 0.5 6.5, 9.5 2 6.5, 9.5 4 6.5
+                8 5.5 6.5, 6 5.5 6.5 
+
+                4.5 4 27, 4.5 2 27, 6 0.5 27
+                8 0.5 27, 9.5 2 27, 9.5 4 27
+                8 5.5 27, 6 5.5 27 
+
+                4 4 27.5, 4 2 27.5, 6 0 27.5
+                " />
+
+    </IndexedFaceSet>
+
+    </Shape>
+
+<!-- terceira seccao o TORRE octagonal -->
+<Shape DEF = "TERCEIRA_SECCAO">
+ <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_TERCEIRA_SECCAO.png" />
+    </Appearance>
+
+
+    <IndexedFaceSet solid="false" colorPerVertex="true"
+        coordIndex=" 3 11 12 4 -1
+                    11 19 20 12 -1
+                    19 27 28 20 -1
+                    27 35 36 28 -1
+                    2 3 4 5 6 7 8 -1, ">
+
+    <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6
+
+                4.5 4 6.5, 4.5 2 6.5, 6 0.5 6.5
+                8 0.5 6.5, 9.5 2 6.5, 9.5 4 6.5
+                8 5.5 6.5, 6 5.5 6.5 
+
+                4.5 4 27, 4.5 2 27, 6 0.5 27
+                8 0.5 27, 9.5 2 27, 9.5 4 27
+                8 5.5 27, 6 5.5 27 
+
+                4 4 27.5, 4 2 27.5, 6 0 27.5
+                8 0 27.5
+                " />
+
+
+
+    </IndexedFaceSet>
+    </Shape>
+
+<!-- quarta seccao do TORRE octagonal -->
+    <Shape DEF = "QUARTA_SECCAO">
+ <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_QUARTA_SECCAO.png" />
+    </Appearance>
+
+
+    <IndexedFaceSet solid="false" colorPerVertex="true"
+        coordIndex="   4 12 13 5 -1
+ 12 20 21 13 -1
+ 20 28 29 21 -1
+ 28 36 37 29 -1   ">
+
+    <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6
+
+                4.5 4 6.5, 4.5 2 6.5, 6 0.5 6.5
+                8 0.5 6.5, 9.5 2 6.5, 9.5 4 6.5
+                8 5.5 6.5, 6 5.5 6.5 
+
+                4.5 4 27, 4.5 2 27, 6 0.5 27
+                8 0.5 27, 9.5 2 27, 9.5 4 27
+                8 5.5 27, 6 5.5 27 
+
+                4 4 27.5, 4 2 27.5, 6 0 27.5
+                8 0 27.5, 10 2 27.5
+                " />
+
+    </IndexedFaceSet>
+
+    </Shape>
+
+<!--  quinta seccao do TORRE octagonal -->
+  <Shape DEF = "QUINTA_SECCAO">
+ <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_QUARTA_SECCAO.png" />
+    </Appearance>
+
+
+    <IndexedFaceSet solid="false" colorPerVertex="true" coordIndex = "
+                5 6 14 13 -1
+                13 21 22 14 -1
+                21 29 30 22 -1
+                29 37 38 30 -1">
+
+    <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6
+
+                4.5 4 6.5, 4.5 2 6.5, 6 0.5 6.5
+                8 0.5 6.5, 9.5 2 6.5, 9.5 4 6.5
+                8 5.5 6.5, 6 5.5 6.5 
+
+                4.5 4 27, 4.5 2 27, 6 0.5 27
+                8 0.5 27, 9.5 2 27, 9.5 4 27
+                8 5.5 27, 6 5.5 27 
+
+                4 4 27.5, 4 2 27.5, 6 0 27.5
+                8 0 27.5, 10 2 27.5, 10 4 27.5
+                " />
+
+  
+
+    </IndexedFaceSet>
+    </Shape>
+
+<!-- sexta seccao do TORRE octagonal -->
+     <Shape DEF = "SEXTA_SECCAO">
+ <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_SEXTA_SECCAO.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid="false" colorPerVertex="true" coordIndex = "
+                    6 14 15 7 -1
+                    14 22 23 15 -1
+                    22 30 31 23 -1
+                    30 38 39 31 -1">
+
+    <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6
+
+                4.5 4 6.5, 4.5 2 6.5, 6 0.5 6.5
+                8 0.5 6.5, 9.5 2 6.5, 9.5 4 6.5
+                8 5.5 6.5, 6 5.5 6.5 
+
+                4.5 4 27, 4.5 2 27, 6 0.5 27
+                8 0.5 27, 9.5 2 27, 9.5 4 27
+                8 5.5 27, 6 5.5 27 
+
+                4 4 27.5, 4 2 27.5, 6 0 27.5
+                8 0 27.5, 10 2 27.5, 10 4 27.5
+                8 6 27.5
+                " />
+
+
+    </IndexedFaceSet>
+
+    </Shape>
+
+<!-- septima seccao do TORRE octagonal -->
+        <Shape DEF = "SEPTIMA_SECCAO">
+ <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_SEPTIMA_SECCAO.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid="false" colorPerVertex="true" coordIndex = "
+                7 15 16 8 -1
+                15 23 24 16 -1
+                 23 31 32 24 -1
+                31 39 40 32 -1">
+
+    <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6
+
+                4.5 4 6.5, 4.5 2 6.5, 6 0.5 6.5
+                8 0.5 6.5, 9.5 2 6.5, 9.5 4 6.5
+                8 5.5 6.5, 6 5.5 6.5 
+
+                4.5 4 27, 4.5 2 27, 6 0.5 27
+                8 0.5 27, 9.5 2 27, 9.5 4 27
+                8 5.5 27, 6 5.5 27 
+
+                4 4 27.5, 4 2 27.5, 6 0 27.5
+                8 0 27.5, 10 2 27.5, 10 4 27.5
+                8 6 27.5, 6 6 27.5
+                " />
+
+
+    </IndexedFaceSet>
+    </Shape>
+
+<!-- oitava seccao do TORRE octagonal -->
+ <Shape DEF = "OITAVA_SECCAO">
+ <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_OITAVA_SECCAO.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid="false" colorPerVertex="true" coordIndex = "
+            8 16 9 1 -1
+            16 24 17 9 -1
+             24 32 25 17 -1
+            32 40 33 25 -1">
+
+    <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6
+
+                4.5 4 6.5, 4.5 2 6.5, 6 0.5 6.5
+                8 0.5 6.5, 9.5 2 6.5, 9.5 4 6.5
+                8 5.5 6.5, 6 5.5 6.5 
+
+                4.5 4 27, 4.5 2 27, 6 0.5 27
+                8 0.5 27, 9.5 2 27, 9.5 4 27
+                8 5.5 27, 6 5.5 27 
+
+                4 4 27.5, 4 2 27.5, 6 0 27.5
+                8 0 27.5, 10 2 27.5, 10 4 27.5
+                8 6 27.5, 6 6 27.5
+                " />
+
+
+    </IndexedFaceSet>
+    </Shape>
+
+<!-- figuras rectangulares no interior da parte superior da muralha que estao "coladas" para simular espessura (zona da ranhura)  -->
+     <transform translation = " 7 0.55 28.5" >
+    <Shape DEF = "UPPER_PART_BOX">
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURA_TORRE_BASE.png" />
+        </Appearance>
+        <box size = "1.5 1 2" />
+    </Shape>
+ </transform>
+
+<!-- copiar vezes a mesma figura para ficar no lado oposto -->
+ <transform translation = " 7 5.45 28.5" >
+    <Shape USE = "UPPER_PART_BOX">
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURA_TORRE_BASE.png" />
+        </Appearance>
+    </Shape>
+ </transform>
+
+<!-- as figuras nao sao iguais, portanto tem de se criar outra figura com as dimensoes invertidas no x e y, para conseguir encaixar na perfeicao -->
+  <transform translation = "4.55 3 28.5" >
+    <Shape DEF = "UPPER_PART_BOX_2">
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURA_TORRE_BASE.png" />
+        </Appearance>
+            <box size = "1 1.5 2" />
+    </Shape>
+ </transform>
+
+<!-- e copia-se para o lado oposto -->
+ <transform translation = "9.45 3 28.5" >
+    <Shape USE = "UPPER_PART_BOX_2">
+    </Shape>
+ </transform>
+
+<!-- comeca a construcao da parte superior do TORRE -->
+<!-- corresponde a metade das figuras diagonal (so a parte interior) em relacao ao TORRE por razoes de texturas -->
+
+     <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_diagonal_shape_1">
+
+    <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_8.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+
+                    35 37 44 43 -1
+                    44 43 41 42 -1
+                    41 42 21 17 -1">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+                4 3.5 0, 4 3.5 2, 4 2.5 0
+                4 2.5 2, 4 3.5 6, 4 2.5 6 
+
+                6.5 0 0, 6.5 0 2, 6.5 0 6
+                7.5 0 0, 7.5 0 2, 7.5 0 6
+
+                10 3.5 0, 10 3.5 2, 10 2.5 0
+                10 2.5 2, 10 3.5 6, 10 2.5 6
+
+                6.5 6 0, 6.5 6 2, 6.5 6 6
+                7.5 6 0, 7.5 6 2, 7.5 6 6
+
+                4.8 3.5 0, 4.8 3.5 6, 6.5 5.2 0
+                6.5 5.2 6
+                
+                4.8 2.5 0, 4.8 2.5 6
+                6.5 0.8 0, 6.5 0.8 6
+
+          
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+
+     <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_diagonal_shape_2">
+
+    <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_8.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+                    19 22 46 45 -1
+                    46 45 47 48 -1
+                    47 48 25 23 -1 
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+                4 3.5 0, 4 3.5 2, 4 2.5 0
+                4 2.5 2, 4 3.5 6, 4 2.5 6 
+
+                6.5 0 0, 6.5 0 2, 6.5 0 6
+                7.5 0 0, 7.5 0 2, 7.5 0 6
+
+                10 3.5 0, 10 3.5 2, 10 2.5 0
+                10 2.5 2, 10 3.5 6, 10 2.5 6
+
+                6.5 6 0, 6.5 6 2, 6.5 6 6
+                7.5 6 0, 7.5 6 2, 7.5 6 6
+
+                4.8 3.5 0, 4.8 3.5 6, 6.5 5.2 0
+                6.5 5.2 6
+                
+                4.8 2.5 0, 4.8 2.5 6
+                6.5 0.8 0, 6.5 0.8 6
+
+                7.5 0.8 0, 7.5 0.8 6
+                9.2 2.5 0, 9.2 2.5 6
+
+                9.2 3.5 0, 9.2 3.5 6
+                7.5 5.2 0, 7.5 5.2 6
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+      <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_diagonal_shape_3">
+
+    <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_8.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+
+                   
+                    26 28 50 49 -1
+                    50 49 51 52 -1
+                    52 51 31 34 -1
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+                4 3.5 0, 4 3.5 2, 4 2.5 0
+                4 2.5 2, 4 3.5 6, 4 2.5 6 
+
+                6.5 0 0, 6.5 0 2, 6.5 0 6
+                7.5 0 0, 7.5 0 2, 7.5 0 6
+
+                10 3.5 0, 10 3.5 2, 10 2.5 0
+                10 2.5 2, 10 3.5 6, 10 2.5 6
+
+                6.5 6 0, 6.5 6 2, 6.5 6 6
+                7.5 6 0, 7.5 6 2, 7.5 6 6
+
+                4.8 3.5 0, 4.8 3.5 6, 6.5 5.2 0
+                6.5 5.2 6
+                
+                4.8 2.5 0, 4.8 2.5 6
+                6.5 0.8 0, 6.5 0.8 6
+
+                7.5 0.8 0, 7.5 0.8 6
+                9.2 2.5 0, 9.2 2.5 6
+
+                9.2 3.5 0, 9.2 3.5 6
+                7.5 5.2 0, 7.5 5.2 6
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+
+      <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_diagonal_shape_4">
+
+    <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_8.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+
+                   
+                    29 33 54 53 -1
+                    54 53 55 56 -1
+                    55 56 40 38 -1
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+                4 3.5 0, 4 3.5 2, 4 2.5 0
+                4 2.5 2, 4 3.5 6, 4 2.5 6 
+                6.5 0 0, 6.5 0 2, 6.5 0 6
+                7.5 0 0, 7.5 0 2, 7.5 0 6
+                10 3.5 0, 10 3.5 2, 10 2.5 0
+                10 2.5 2, 10 3.5 6, 10 2.5 6
+                6.5 6 0, 6.5 6 2, 6.5 6 6
+                7.5 6 0, 7.5 6 2, 7.5 6 6
+                4.8 3.5 0, 4.8 3.5 6, 6.5 5.2 0
+                6.5 5.2 6            
+                4.8 2.5 0, 4.8 2.5 6
+                6.5 0.8 0, 6.5 0.8 6
+                7.5 0.8 0, 7.5 0.8 6
+                9.2 2.5 0, 9.2 2.5 6
+                9.2 3.5 0, 9.2 3.5 6
+                7.5 5.2 0, 7.5 5.2 6
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+
+
+<!-- construcao das seccao do TORRE, exactamente como nas outras seccoes ja construidas so que na parte superior
+        na parte anterior fez se a parte interior da parte superior do TORRE, agora faz-se a parte exterior -->
+<!-- nestas seccao ha dois tipos diferentes. um indexedfaceset com uma unica face, e um indexed face set composto por 3 faces (para recriar as ranhuras) -->
+
+    <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_section_8">
+
+    <Appearance>
+<ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_8.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+            8 16 9 1 -1
+
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+ <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_section_7">
+
+    <Appearance>
+<ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_7.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+                    7 38 40 15 -1
+                    38 39 36 35 -1
+                    35 8 16 37 -1 
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+                4 3.5 0, 4 3.5 2, 4 2.5 0
+                4 2.5 2, 4 3.5 6, 4 2.5 6 
+
+                6.5 0 0, 6.5 0 2, 6.5 0 6
+                7.5 0 0, 7.5 0 2, 7.5 0 6
+
+                10 3.5 0, 10 3.5 2, 10 2.5 0
+                10 2.5 2, 10 3.5 6, 10 2.5 6
+
+                6.5 6 0, 6.5 6 2, 6.5 6 6
+                7.5 6 0, 7.5 6 2, 7.5 6 6
+
+                4.8 3.5 0, 4.8 3.5 6, 6.5 5.2 0
+                6.5 5.2 6
+                
+                4.8 2.5 0, 4.8 2.5 6
+                6.5 0.8 0, 6.5 0.8 6
+
+                7.5 0.8 0, 7.5 0.8 6
+                9.2 2.5 0, 9.2 2.5 6
+
+                9.2 3.5 0, 9.2 3.5 6
+                7.5 5.2 0, 7.5 5.2 6
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+
+      <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_section_1">
+
+    <Appearance>
+<ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_1.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+
+                    1 9 21 17 -1
+                    2 10 22 19 -1
+                    17 18 20 19 -1
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+                4 3.5 0, 4 3.5 2, 4 2.5 0
+                4 2.5 2, 4 3.5 6, 4 2.5 6 
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+     <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_section_2">
+
+    <Appearance>
+<ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_4.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+
+                      2 10 11 3 -1
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6           
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+      <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_section_3">
+
+    <Appearance>
+<ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_3.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+
+                    3 23 25 11 -1
+                    23 24 27 26 -1
+                    26 28 12 4 -1
+
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+                4 3.5 0, 4 3.5 2, 4 2.5 0
+                4 2.5 2, 4 3.5 6, 4 2.5 6 
+
+                6.5 0 0, 6.5 0 2, 6.5 0 6
+                7.5 0 0, 7.5 0 2, 7.5 0 6
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+
+
+ <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_section_4">
+
+    <Appearance>
+<ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_4.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+
+                      4 12 13 5 -1
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+                
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+
+<transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_section_5">
+
+    <Appearance>
+       <ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_1.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+
+                    5 13 34 31 -1
+                    31 32 30 29 -1
+                    29 33 14 6 -1
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+                4 3.5 0, 4 3.5 2, 4 2.5 0
+                4 2.5 2, 4 3.5 6, 4 2.5 6 
+
+                6.5 0 0, 6.5 0 2, 6.5 0 6
+                7.5 0 0, 7.5 0 2, 7.5 0 6
+
+                10 3.5 0, 10 3.5 2, 10 2.5 0
+                10 2.5 2, 10 3.5 6, 10 2.5 6
+
+               
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+      <transform translation = "0 0 27.5"> 
+    <Shape DEF="TORRE_upper_section_2">
+
+    <Appearance>
+<ImageTexture url ="texturas/TEXTURE_UPPER_SECCAO_6.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+                     6 14 15 7 -1
+
+                   ">
+
+        <Coordinate
+        point= "0 0 0, 4 4 0, 4 2 0
+                6 0 0, 8 0 0, 10 2 0
+                10 4 0, 8 6 0, 6 6 0
+                4 4 6, 4 2 6, 6 0 6
+                8 0 6, 10 2 6, 10 4 6
+                8 6 6, 6 6 6 
+
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+    </transform>
+
+
+<!-- parte no topo de cada seccao na diagonal-->
+    <transform translation = "0 0 33.5"> 
+    <Shape DEF = "TORRE_UPPER_DIAGONAL_TOP">
+     <Appearance>
+       <ImageTexture url = "texturas/TEXTURE_DIAGONAL_TOPO.png" />
+    </Appearance>
+
+    <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "  1 2 4 3 -1
+                        5 7 8 6 -1
+                        2 5 7 4 -1
+                        
+                        9 10 3 4 -1
+                        11 12 8 7 -1
+                        4 7 11 9 -1
+ 
+
+                        10 18 17 9 -1
+                        11 19 20 12 -1
+                        17 19 11 9 -1
+                        
+
+                        16 14 20 12 8 -1
+                        15 13 18 10 3 -1
+                        15 13 14 16 -1
+                        20 19 17 18 13 14 -1">
+
+        <Coordinate
+        point= "
+                0 0 0, 4 3.5 0, 4 4 0, 3.5 3.5 0, 3.5 4 0
+                6 6 0, 6.5 6 0, 6 6.5 0, 6.5 6.5 0
+
+                3.2 4 0.3, 3.2 3.5 0.3
+                6 6.7 0.3, 6.5 6.7 0.3 
+
+                4.8 3.5 0.8, 6.5 5.2 0.8, 4.8 3.5 0, 6.5 5.2 0
+
+                4 4 0.8, 4 3.5 0.8, 6 6 0.8, 6.5 6 0.8"/>
+
+        </IndexedFaceSet>
+    </Shape>
+
+<!-- como as 4 figuras sao iguais, copia-se -->
+    </transform>
+    <transform translation = "10 -4 33.5" rotation = "0 0 1 1.5707963267948966" >
+        <Shape USE = "TORRE_UPPER_DIAGONAL_TOP">
+    </transform>
+
+    <transform translation = "14 6 33.5" rotation = "0 0 1 3.141592653589793" >
+        <Shape USE = "TORRE_UPPER_DIAGONAL_TOP">
+    </transform>
+
+        <transform translation = "4 10 33.5" rotation = "0 0 1 -1.5707963267948966" >
+        <Shape USE = "TORRE_UPPER_DIAGONAL_TOP">
+        </transform>
+
+  </Group>
+
+
+<!-- novo grupo, corresponde a criacao das muralhas, do lado esquerdo-->
+<!-- todas as shapes com invert corresponde a novas figuras com uma inversao nas texturas de algumas figuras originais  -->
+<Group DEF = "MURALHAS_ESQ">
+
+<!-- corresponde a seccao da muralha mais baixa e a direita ( nota: refere-se as figuras com a mesma textura) -->
+ <transform translation = "-26 8 16" >
+    <Shape DEF = "MURALHA">
+     <Appearance>
+        <ImageTexture url = "texturas/TEXTURA_MURALHA.png" />
+    </Appearance>
+    <box size = "6 6 31.5" />
+    </Shape>
+    </transform>
+
+<!-- inversao de textura -->
+     <transform translation = "-23 6.25 16" >
+    <Shape DEF = "MURALHA_INVERT">
+     <Appearance>
+        <ImageTexture url = "texturas/TEXTURA_MURALHA_INVERT.png" />
+    </Appearance>
+    <box size = "0.3 15.5 31.5" />
+    </Shape>
+    </transform>
+
+<!-- maior parte da muralha, apoio dos blocos da muralha-->
+ <transform translation = "-42.5 8 18.5" >
+    <Shape DEF = "MURALHA_2">
+        <Appearance>
+             <ImageTexture url = "texturas/TEXTURA_MURALHA.png" />
+        </Appearance>
+        <box size = "30 6 36.5" />
+    </Shape>
+ </transform>
+
+ <!-- inversao de textura, serve pa evitar problemas de texturas, ou seja, mal representacao -->
+   <transform translation = " -42.5 8 36.75" >
+    <Shape DEF = "MURALHA_2_INVERT">
+        <Appearance>
+             <ImageTexture url = "texturas/TEXTURA_MURALHA_INVERT.png" />
+        </Appearance>
+        <box size = "30 6 0.3" />
+    </Shape>
+ </transform>
+
+  <transform translation = " -72.5 8 36.75" >
+    <Shape USE = "MURALHA_2_INVERT">
+    </Shape>
+ </transform>
+
+ <!-- inversao de textura, serve pa evitar problemas de texturas, ou seja, mal representacao -->
+ <transform translation = "-87.5 8 18.25" >
+    <Shape DEF = "MURALHA_2_INVERT">
+            <Appearance>
+            <ImageTexture url = "texturas/TEXTURA_MURALHA_INVERT.png" />
+        </Appearance>
+                <box size = "0.3 6 37 " />
+                
+    </Shape>
+ </transform>
+
+<!-- extender a muralha em x -->
+
+  <transform translation = "-72.5 8 18.5" >
+    <Shape USE = "MURALHA_2">
+    </Shape>
+ </transform>
+
+<!-- blocos da muralha -->
+<transform translation = "-41.5 8 40">
+    <Shape DEF = "BLOCO_MURALHA" >
+        <Appearance>
+            <ImageTexture url = "texturas/texture_Walls_block.png" />
+        </Appearance>
+        <box size = "7.5 6 7.2" />
+    </Shape>
+</transform>
+
+<!-- como sao iguais, copia-se -->
+<transform translation = "-53.8 8 40">
+    <Shape USE = "BLOCO_MURALHA"></Shape>
+</transform>
+
+<!-- como sao iguais, copia-se -->
+<transform translation = "-66.1 8 40">
+    <Shape USE = "BLOCO_MURALHA"></Shape>
+</transform>
+
+<!-- como sao iguais, copia-se -->
+<transform translation = "-78.4 8 40">
+    <Shape USE = "BLOCO_MURALHA"></Shape>
+</transform>
+
+</Group>
+
+ <!-- extensao da muralha no eixo do Y, a um nivel mais abaixo dos blocos -->
+ <transform translation = " -40.25 12.5 16" >
+    <Shape DEF = "MURALHA_EXTENDED">
+        <Appearance>
+             <ImageTexture url = "texturas/TEXTURA_MURALHA.png" />
+        </Appearance>
+        <box size = "34.5 3 31.5" />
+    </Shape>
+ </transform>
+
+  <!-- extensao da muralha no eixo do Y, a um nivel mais abaixo dos blocos -->
+ <transform translation = "-70.25 12.5 16" >
+    <Shape USE = "MURALHA_EXTENDED">
+    </Shape>
+ </transform>
+
+<!-- inversao de textura, evitar ma representacao da textura -->
+  <transform translation = " -40.25 12.5 31.3" >
+    <Shape DEF = "MURALHA_EXTENDED_TOP">
+        <Appearance>
+             <ImageTexture url = "texturas/TEXTURA_MURALHA_INVERT.png" />
+        </Appearance>
+        <box size = "34.5 3 1" />
+    </Shape>
+ </transform>
+
+   <transform translation = " -70.25 12.5 31.3" >
+    <Shape USE = "MURALHA_EXTENDED_TOP">
+    </Shape>
+ </transform>
+
+<!-- inversao -->
+  <transform translation = "-87.5 12 16" >
+    <Shape DEF = "MURALHA_INVERT_5">
+            <Appearance>
+            <ImageTexture url = "texturas/TEXTURA_MURALHA_INVERT.png" />
+        </Appearance>
+                <box size = "0.3 4 31.6 " />
+                
+    </Shape>
+ </transform>
+
+
+<transform translation = "-26 2 16" >
+    <Shape USE = "MURALHA">
+    </Shape>
+ </transform>
+
+ <transform translation = "-26 1.5 16" >
+    <Shape USE = "MURALHA">
+    </Shape>
+ </transform>
+
+<!-- parte da muralha (na vertical ) no lado direito da parte mais baixa da muralha, colado ao apoio dos blocos e tambem da INCLINACAO-->
+ <transform translation = "-30.5 4.5 18.5" >
+    <Shape DEF = "MURALHA_3">
+            <Appearance>
+            <ImageTexture url = "texturas/TEXTURA_MURALHA.png" />
+        </Appearance>
+                <box size = "6 12 36.5 " />
+                
+    </Shape>
+ </transform>
+
+<!-- inversao -->
+  <transform translation = "-27.5 4.75 18.5" >
+    <Shape DEF = "MURALHA_INVERT_2">
+            <Appearance>
+            <ImageTexture url = "texturas/TEXTURA_MURALHA_INVERT.png" />
+        </Appearance>
+                <box size = "0.3 12.5 36.5 " />
+                
+    </Shape>
+ </transform>
+
+<!-- inversao -->
+ <transform translation = "-33.5 2 18.25" >
+    <Shape DEF = "MURALHA_INVERT_3">
+            <Appearance>
+            <ImageTexture url = "texturas/TEXTURA_MURALHA_INVERT.png" />
+        </Appearance>
+                <box size = "0.3 7 37 " />
+                
+    </Shape>
+ </transform>
+
+
+<!-- bloco muralha destruido --> 
+<!-- composta por varias shapes devido a consistencia de texturas -->
+<!-- parte lateral esquerda -->
+ <transform translation = "0 -11.5 0" >
+    <Shape DEF = "BLOCO_MURALHA_DESTRUIDO">
+        <Appearance>
+            <ImageTexture url = "texturas/texture_Walls_block.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "1 2 4 3 -1
+                    ">
+
+        <Coordinate
+        point= "0 0 0, -33.5 16.5 36.5, -33.5 22.5 36.5, -33.5 16.5 42.5, -33.5 22.5 42.5
+
+        -30.5 16.5 36.5, -30.5 22.5 36.5, -30.5 16.5 42.5, -30.5 22.5 42.75"/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+<!-- toda a parte excepto frontal e traseira com efeito destruido -->
+<transform translation = "0 -11.5 0" >
+    <Shape DEF = "BLOCO_MURALHA_DESTRUIDO__FACE_LATERAL">
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_BLOCO_MURALHA_DESTRUIDO.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "3 4 8 7 -1
+                      8 7 9 10 -1
+                      9 10 12 11 -1
+                      11 12 14 13 -1
+                    13 14 16 15 -1
+                    15 16 18 17 -1
+                    17 18 20 19 -1
+                    ">
+
+        <Coordinate
+        point= "0 0 0, -33.5 16.5 36.5, -33.5 22.5 36.5, -33.5 16.5 42.5, -33.5 22.5 42.5
+
+        -31.5 16.5 36.5, -31.5 22.5 36.5, -31.5 16.5 42.5, -31.5 22.5 42.5
+        
+        -31.5 16.5 40, -31.5 22.5 40
+        -30.5 16.5 40, -30.5 22.5 40
+        -30.5 16.5 39, -30.5 22.5 39
+        -29.5 16.5 39, -29.5 22.5 39
+        -29.5 16.5 38, -29.5 22.5 38
+        -27.8 16.5 36.75, -27.8 22.5 36.75"/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+ <transform translation = "0 -11.5 0" >
+    <Shape DEF = "BLOCO_MURALHA_DESTRUIDO_FACES_FRONTAIS">
+        <Appearance>
+            <ImageTexture url = "texturas/texture_Walls_block.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "1 3 7 9 11 13 15 17 19 ">
+
+        <Coordinate
+        point= "0 0 0, -33.5 16.5 36.5, -33.5 22.5 36.5, -33.5 16.5 42.5, -33.5 22.5 42.5
+
+        -31.5 16.5 36.5, -31.5 22.5 36.5, -31.5 16.5 42.5, -31.5 22.5 42.5
+        
+        -31.5 16.5 40, -31.5 22.5 40
+        -30.5 16.5 40, -30.5 22.5 40
+        -30.5 16.5 39, -30.5 22.5 39
+        -29.5 16.5 39, -29.5 22.5 39
+        -29.5 16.5 38, -29.5 22.5 38
+        -27.8 16.5 36.75, -27.8 22.5 36.75"/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+ <transform translation = "0 -5.5 0">
+    <Shape USE = "BLOCO_MURALHA_DESTRUIDO_FACES_FRONTAIS"/>
+ </transform>
+
+
+
+<!-- detalhe refere-se ao "contorno" da inclinacao -->
+<!-- DETALHE_P3 cobre a parte na direcao do eixo X superior da inclinacao -->
+<transform translation = "-14.2 -2 25.5" >
+    <Shape DEF = "DETALHE_P3">
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_DETALHE.png" />
+        </Appearance>
+        <box size = "37.5 1 1" />
+    </Shape>
+ </transform>
+
+<!-- exactamente como a anterior so que na direcao do eixo Y (colado a torre) -->
+<transform translation = "4 0.5 25.5" >
+    <Shape DEF = "DETALHE">
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_DETALHE_2.png" />
+        </Appearance>
+        <box size = "1 4 1" />
+    </Shape>
+ </transform>
+
+<!-- zona direita lateral a inclinicacao esquerda -->
+<Group DEF = "DETALHE_P2">
+<transform translation = "0.5 -3 0" >
+    <Shape DEF = "INCLINACAO_LATERAL">
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_DETALHE_LATERAL_2.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+                    2 3 5 6 -1
+                    5 6 8 7 -1
+
+                    8 1 2 6 -1
+                    3 5 7 4 -1">
+
+        <Coordinate
+        point= "0 0 0, 3 0.5 25, 3 -5 0, 4 -5 0, 4 0.5 25
+                4 5.5 0, 3 5.5 0
+                4 5.5 25.5, 3 5.5 25.5"/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+ <!-- zona detalhada frontal da inclinicao esquerda ( contorno da inclinacao ) -->
+ <transform translation = "0.5 -3 0" >
+    <Shape DEF = "DETALHE_P2_2">
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_DETALHE_FRONTAL.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+                        1 2 3 4 -1">
+
+        <Coordinate
+        point= "0 0 0, 3 0.5 25, 3 -5 0, 4 -5 0, 4 0.5 25
+                4 5.5 0, 3 5.5 0
+                4 5.5 25.5, 3 5.5 25.5"/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+ </Group>
+
+<!-- inclinacao do lado esquerdo -->
+ <transform translation = "1 -3 0">
+    <Shape DEF = "INCLINACAO_ESQUERDA" >
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_INCLINACAO.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "1 3 4 2 -1
+                    3 4 6 5 -1">
+
+        <Coordinate
+        point= "0 0 0, 3 0.8 25, 3 -4.7 0, -34 0.8 25, -34 -4.7 0
+                -34 5 25, -34 5 0.5"/>
+
+        </IndexedFaceSet>
+    </Shape>
+</transform>
+
+<!-- figura lateral esquerda da inclinacao -->
+ <transform translation = "1 -3 0">
+    <Shape DEF = "INCLINACAO_ESQUERDA_2" >
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_INCLINACAO_INVERT.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+                    3 4 6 5 -1
+                    3 5 9 10 -1
+                    10 3 4 8 -1">
+
+        <Coordinate
+        point= "0 0 0, 3 0.8 25, 3 -4.7 0, -34 0.8 25, -34 -4.7 0
+                -34 5 25, -34 5 0.5, -34.8 5 0.5, -34.8 -4.7 0, -34.8 5 25, -34.8 0.8 25"/>
+
+        </IndexedFaceSet>
+    </Shape>
+</transform>
+
+ <transform translation = "-33.15 -1.7 25.5">
+    <Shape DEF = "INCLINACAO_ESQUERDA_2" >
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURA_MURALHA.png" />
+        </Appearance>
+        <box size = "1 1 1"/>
+    </Shape>
+</transform>
+
+<!-- INCLINICACAO - parte lateral direita -->
+ <transform translation = "1 -3 0">
+    <Shape DEF = "INCLINACAO_ESQUERDA_LATERAL" >
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURA_MURALHA_INVERT.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+                        4 3 1 2 -1
+                    ">
+
+        <Coordinate
+        point= "0 0 0, -34.8 5 0.5, -34.8 -4.7 0, -34.8 5 25, -34.8 0.8 25"/>
+
+        </IndexedFaceSet>
+    </Shape>
+</transform>
+
+
+<!-- face superior ao nivel de DETALHE_P3 -->
+ <transform translation = "0 0 0" >
+    <Shape DEF = "COBERTURA">
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURE_BACKPART_6.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "1 2 5 6 7 -1
+                    2 3 4 5 8 -1">
+
+        <Coordinate
+        point= "0 0 0, 3 8 26, -4 0 26, -23 0 26, -23 -2 26, 4 -2 26, 4 2 26, 6.2 2 26, 4 0 26 "/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+<!-- parte por tras da INCLINACAO_ESQUERDA , no lado esquerdo do TORRE -->
+
+<!-- inclinacao pequena na parte de tras -->
+
+    <transform translation = "0 0 0" >
+    <Shape DEF = "BACKPART_INCLINACAO">
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURE_BACKPART_5.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "15 19 10 11 -1">
+
+        <Coordinate
+        point= "0 0 0, 6 2 0, 6 2 25.5, 3 8 0, 3 8 26
+                -4 0 0, -4 0 26
+                -28 0 0, -28 0 26
+
+                -5 14 0, -5 14 3, 3 8 3, -5 14 18, -23 14 18, -23 14 0
+                -4 0 6, -5 14 18, -7 0 0, -7 0 18, -7 0 6, -23 0 18, -23 0 0
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+<!-- face diagonal que liga o TORRE e a inclinicao pequena -->
+    <Shape DEF = "BACKPART_1">
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_BACKPART_1.png"/>
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "1 2 4 3 -1">
+
+        <Coordinate
+        point= "0 0 0, , 6 2 0, 6 2 26, 3 8 0, 3 8 26 "/>
+
+        </IndexedFaceSet>
+    </Shape>
+
+<!-- face que conecta a face anterior (mesma altura) -->
+  <transform translation = "0 0 0" >
+    <Shape DEF = "BACKPART_2">
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_BACKPART_2.png"/>
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = " 3 4 6 5 -1 ">
+
+        <Coordinate
+        point= "0 0 0, , 6 2 0, 6 2 25.5, 3 8 0, 3 8 26
+                -4 0 0, -4 0 26
+                -28 0 0, -28 0 26 "/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+<!-- face que conecta a anterior (mesma altura) -->
+   <transform translation = "0 0 0" >
+    <Shape DEF = "BACKPART_3">
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURE_BACKPART_3.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = " 5 7 8 6 -1 ">
+
+        <Coordinate
+        point= "0 0 0, , 6 2 0, 6 2 25.5, 3 8 0, 3 8 26
+                -4 0 0, -4 0 26
+                -28 0 0, -28 0 26 "/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+<!-- face mais pequena do conjunto em termos de altura. (conectada a primeira face do conjunto e a inclinicao-->
+   <transform translation = "0 0 0" >
+    <Shape DEF = "BACKPART_4">
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURE_BACKPART_3.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "3 9 10 11 -1">
+
+        <Coordinate
+        point= "0 0 0, 6 2 0, 6 2 25.5, 3 8 0, 3 8 26
+                -4 0 0, -4 0 26
+                -28 0 0, -28 0 26
+
+                -5 14 0, -5 14 3, 3 8 3 "/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+<!-- face quadrada ao lado direito da face anterior (ponto de vista aposto ao original) -->
+  <transform translation = "0 0 0" >
+    <Shape DEF = "BACKPART_5">
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURE_BACKPART_7.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "9 14 13 12 -1">
+
+        <Coordinate
+        point= "0 0 0, 6 2 0, 6 2 25.5, 3 8 0, 3 8 26
+                -4 0 0, -4 0 26
+                -28 0 0, -28 0 26
+
+                -5 14 0, -5 14 3, 3 8 3, -5 14 18, -23 14 18, -23 14 0
+                -4 0 6, -5 14 18, -7 0 0, -7 0 18 "/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+<!-- face no lado esquerdo da anterior (conectada a inclinacao)-->
+   <transform translation = "0 0 0" >
+    <Shape DEF = "BACKPART_6">
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURE_BACKPART_6.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "9 17 18 16 -1">
+
+        <Coordinate
+        point= "0 0 0, 6 2 0, 6 2 25.5, 3 8 0, 3 8 26
+                -4 0 0, -4 0 26
+                -28 0 0, -28 0 26
+
+                -5 14 0, -5 14 3, 3 8 3, -5 14 18, -23 14 18, -23 14 0
+                -4 0 6, -5 14 18, -7 0 0, -7 0 18, -7 0 6, -23 0 18, -23 0 0
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+ </transform>
+
+<!-- face mais a cima (serve de "COBERTURA") esta ligada as anteriores -->
+<transform translation = "0 0 0">
+    <Shape DEF = "BACKPART_COBERTURA" >
+        <Appearance>
+           <ImageTexture url ="texturas/TEXTURE_BACKPART_7.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "
+                
+                        20 13 16 18 -1 
+    ">
+
+        <Coordinate
+        point= "0 0 0, 6 2 0, 6 2 25.5, 3 8 0, 3 8 26
+                -4 0 0, -4 0 26
+                -28 0 0, -28 0 26
+
+                -5 14 0, -5 14 3, 3 8 3, -5 14 18, -23 14 18, -23 14 0
+                -4 0 6, -5 14 18, -7 0 0, -7 0 18, -7 0 6, -23 0 18, -23 0 0
+                
+
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+</transform>
+
+
+<!-- nesta parte encontra-se varias copias de shapes ja existentes, estas copias referem-se a elementos no lado direito (no ponto de vista original)-->
+<transform translation = "31 0 0" >
+    <Shape USE = "TORRE">
+    </Shape>
+ </transform>
+
+
+<transform translation = "41 0.5 25.5" >
+    <Shape USE = "DETALHE">
+    </Shape>
+ </transform>
+
+<transform translation = "41 4 25.5" >
+    <Shape USE = "DETALHE">
+    </Shape>
+ </transform>
+
+ <transform translation = "41 6 25.5" >
+    <Shape USE = "DETALHE">
+    </Shape>
+ </transform>
+
+<!-- COBERTURA por cima da INCLINACAO direita -->
+  <transform translation = " 60 3 26" >
+    <Shape DEF = "COBERTURA_DIR">
+        <Appearance>
+             <ImageTexture url = "texturas/TEXTURE_DETALHE.png" />
+        </Appearance>
+        <box size = "37.5 9 0" />
+    </Shape>
+ </transform>
+
+ <transform translation = "59.25 -2 25.5" >
+    <Shape USE = "DETALHE_P3">
+ </transform>
+
+  <transform translation = "59.25 8 25.5" >
+    <Shape USE = "DETALHE_P3">
+ </transform>
+
+
+<!-- INCLINACAO do lado direito-->
+  <transform translation = "41 -3 0" >
+    <Shape DEF = "INCLINACAO_DIREITA">
+        <Appearance>
+             <ImageTexture url = "texturas/TEXTURE_INCLINACAO.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = " 1 2 3 4 -1  ">
+
+        <Coordinate
+        point= "0 1 0, 0 -4.5 0, 38.75 -4.5 0
+                38.75 0.8 25.5, 0 0.8 25.5 
+                "/>
+
+        </IndexedFaceSet>
+        
+    </Shape>
+ </transform>
+
+ <!-- parte lateral direita da INCLINACAO -->
+ <transform translation = "100.25 -2 0">
+    <Shape DEF = "INCLINACAO_LATERAL" >
+        <Appearance>
+             <ImageTexture url ="texturas/TEXTURE_MURALHA_LAT.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "1 0 2 -1">
+
+        <Coordinate
+        point= "
+                0 0 0, 0 -5.5 0,  0 0 26"/>
+
+        </IndexedFaceSet>
+    </Shape>
+</transform>
+
+ <transform translation = "61.75 -3 0" >
+    <Shape USE = "INCLINACAO_DIREITA">
+    </Shape>
+ </transform>
+
+<transform translation = "37.5 0 0" >
+    <Shape USE = "DETALHE_P2">
+        
+    </Shape>
+ </transform>
+
+
+ <transform translation = "41.5 5 12.5" >
+    <Shape DEF = "DETALHE_P2_DIR">
+        <Appearance>
+            <ImageTexture url = "texturas/TEXTURE_DETALHE_DIR.png" />
+        </Appearance>
+        <box size = "1 6.5 25"/>
+    </Shape>
+ </transform>
+
+<!-- parte da muralha -->
+ <transform translation = "84.25 3 33" >
+    <Shape DEF = "MURALHA_DIREITA">
+        <Appearance>
+             <ImageTexture url = "texturas/TEXTURE_MURALHA_DIR.png" />
+        </Appearance>
+        <box size = "31.75 10.4 16" />
+    </Shape>
+ </transform>
+
+<!-- parte da muralha que esta destruida -->
+ <transform translation = "60 -2.2 25">
+    <Shape DEF = "MURALHA_DESTRUIDA_LATERAL" >
+        <Appearance>
+            <ImageTexture url ="texturas/TEXTURE_MURALHA_DIR_2.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "1 16 15 2 -1
+        15 2 3 14 -1
+        3 14 13 4 -1
+
+        13 4 5 12 -1
+        5 12 11 6 -1
+
+        7 10 9 8 -1
+    ">
+
+        <Coordinate
+        point= "0 0 0, 0 0 0, 1 0 3, 2 0 5, 3 0 8, 3.5 0 9, 6 0 13, 6 0 13, 8.5 0 15
+                8.5 10.4 15, 6 10.4 13, 6 10.4 13, 3.5 10.4 9, 3 10.4 8, 2 10.4 5, 1 10.4 3, 0 10.4 0
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+</transform>
+
+<!-- seccao da parte da muralha destruida frontal -->
+ <transform translation = "60 -2.2 25">
+    <Shape DEF = "MURALHA_DESTRUIDA_FRONTAL" >
+        <Appearance>
+            <ImageTexture url ="texturas/TEXTURE_MURALHA_LAT.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "1 2 3 4 5 6 7 8 9 -1">
+
+        <Coordinate
+        point= "0 0 0, 0 0 0, 1 0 3, 2 0 5, 3 0 8, 3.5 0 9, 6 0 13, 6 0 13, 8.5 0 15, 8.5 0 0
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+</transform>
+
+<!-- seccao da parte da muralha destruida traseira-->
+ <transform translation = "60 -2.2 25">
+    <Shape DEF = "MURALHA_DESTRUIDA_TRASEIRO" >
+        <Appearance>
+            <ImageTexture url ="texturas/TEXTURE_MURALHA_LAT.png" />
+        </Appearance>
+        <IndexedFaceSet solid = "false" colorPerVertex="true"
+        coordIndex = "8 7 6 5 4 3 2 1 9 -1">
+
+        <Coordinate
+        point= "0 0 0, 8.5 10.4 15, 6 10.4 13, 6 10.4 13, 3.5 10.4 9, 3 10.4 8, 2 10.4 5, 1 10.4 3, 0 10.4 0
+        8.5 10.4 0
+                "/>
+
+        </IndexedFaceSet>
+    </Shape>
+</transform>
+
+<!-- muralha no interior (por tras da INCLINACAO direita ) -->
+ <transform translation = "80.5 3 12" >
+    <Shape DEF = "MURALHA_INTERIOR">
+        <Appearance>
+             <ImageTexture url ="texturas/TEXTURE_MURALHA_LAT.png" />
+        </Appearance>
+        <box size = "38.75 10.4 26" />
+    </Shape>
+ </transform>
+
+  <transform translation = "60.5 3 12" >
+    <Shape USE = "MURALHA_INTERIOR">
+    </Shape>
+ </transform>
+
+            </scene>
+        </x3d>
+
+                </td>
+			</tr>
+    	</table>
+        <h2>Engenharia Informática, Computação Gráfica &mdash; 2014-15</h2>
+    </body>
+</html>
+

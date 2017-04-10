@@ -1,0 +1,662 @@
+﻿--------------------------
+| 27421 - Pedro Jacob	 |
+| 31626 - André Figueira |
+--------------------------
+
+0. Introdução
+
+1. Autenticação
+	1.1 Registo
+	1.2 Login
+	1.3 Alteração de NICKNAME
+	1.4 Recuperação da password
+	1.6 Comandos
+		1.6.1 NICKREG
+		1.6.2 LOGIN
+		1.6.3 PASSWORD_RECOVERY
+		1.6.4 REG_EMAIL
+		1.6.5 CHANGE_EMAIL
+
+2. Canais
+	2.1 Criação de canal
+	2.2 Destruição de canal
+	2.3 Entrada e Saída de canal
+	2.4 Comandos
+		2.4.1 CHANNEL_CREATE
+		2.4.2 CHANNEL_ENTER
+		2.4.3 LEAVE
+		2.4.4 CHANGE_TOPIC
+		2.4.5 LIST
+
+3. Mensagens
+	3.1 Mensagem de chat
+	3.2 Mensagem privada
+	3.4 Comandos
+		3.4.1 MESSAGEALL
+		3.4.2 MESSAGECHANNEL
+		3.4.3 PM
+		3.4.4 QUIT
+		
+4. Transferência de Ficheiros
+	4.1 Comandos
+		4.1.1 SEND
+		4.1.2 ACCEPT
+		4.1.3 REFUSE
+		4.1.4 CANCEL
+		4.1.5 SEND_FILE
+		4.1.6 RECEIVE_FILE 
+			
+5. Resumo de comandos, respostas, mensagens e notificações.
+	5.1 Comandos do utilizador
+	5.2 Respostas, mensagens e notificações do servidor
+
+
+0. Introdução
+
+JRC2015 (Junior Relay Chat 2015) é um protocolo que funciona
+com o paradigma de utilizador-servidor, obecendo a estruturas de protocolos
+de chat já existentes. (Exemplo: IRC). 
+Há portanto, a possbilidade neste protocolo de os utilizadores 
+mandarem mensagens entre eles. Na estrutura de um sistema típico existe um
+servidor, ao qual varios utilizadores de ligam, tendo o servidor o trabalho de
+controlar as mensagens entre utilizadores, sendo o mesmo o unico responsavel 
+pela recepção e correcta entrega de mensagens.
+Enquandra-se tambem no protocolo o facto de os utilizadores se identificarem
+atraves de um nome de usuário unico,
+não podendo assim existir utilizadores com nomes iguais.
+Alem disso, o protocolo permite tambem a existencia de canais, descrita
+da seguinte maneira:
+
+-Todos os utilizadores que entrarem ficam automaticamente ligado ao 
+canal #cenas(#global)
+
+-Um utilizador poder entrar nos canais que quiser existente, ou criar
+ canais proprios ( com um topico a definir pelo mesmo)
+
+-Um utilizador pode mandar mensagens one to one ( Private message ),
+one to all ( atraves do canal #cenas) ou one to N, ( atraves de mensagens para 
+canais)
+
+1. Autenticação
+
+Ao se conectar ao servidor o utilizador é lhe dado um nickname 
+temporário único( ex: ANON2042), não podendo haver dois utilizadores
+com o mesmo nome. O utilizador pode alterar este nome através de comandos
+para um outro nome único. O utilizador através de comandos pode então no futuro
+fazer um pedido ao servidor para registar um nome único, reservando o, 
+pelo qual este novo nome substitui o nome 
+temporário após o servidor garantir  a autenticidade.   
+
+1.1 Registo
+
+O utilizador tem a hipotese de tornar o seu nome temporário
+num nome permanente, reservando o. Para tal tem de submeter um
+pedido ao servidor para se registar. Podendo o servidor gerar 
+ou nao respostas. 
+
+1.2 Login 
+
+Um utilizado que já se tenha registado no servidor pode
+efectuar o login. Caso decida realizar o log in, o seu 
+nome temporário é alterado e passa a ser o nome fornecido pelo login
+dado que os parametros estejam correctos. 
+Neste caso, os utilizadores do chat são notificados que
+um utilizador fez login.
+
+1.4 Alteração de NICKNAME
+
+A dada qualquer altura o utilizador registado ou nao registado pode submeter
+um pedido ao servidor para que o seu nome seja alterado. 
+Qualquer utilizador, registado ou nao registado, pode alterar o seu
+nome, desde que o novo nome não esteja reservado, isto é, já em uso, 
+por outro utilizador registado ou temporário.
+ 
+1.5 Recuperação de password
+
+Caso o utilizador queira retornar a password associada ao nome único então
+submete um pedido ao servidor para tal. O servidor pode gerar ou não respostas.
+Para poder recuperar a password, o utilizador atraves de comandos envia um 
+pedido ao servidor com um nome e um email e o servidor associa o nome ao e-mail
+e verifica se estão correctos. Se os parametros estiverem correctos então o 
+servidor envia para o email os dados.
+
+1.6 Comandos
+
+Os utilizadores enviam comandos ao servidor que geram respostas. Em seguida
+estão cdescritos os comandos disponíveis.
+
+1.6.1 NICKREG <nome> <password> [ <email> ]
+
+O comando serve para o utilizador registar o seu nome temporario de maneira
+permanente no servidor. O utilizador pede ao servidor para reservar o nome. 
+O servidor deve responder 
+uma das seguintes respostas possíveis:
+
+	- REG_OK <nome> -> significa que o nome foi aceite. O servidor notifica 
+	o utilizador que o registo se efectou com sucesso. 
+	
+	- ERR_NICK <nome> -> significa o que o nome já está em uso por outro
+	utilizador. Neste caso o utilizador submete outro pedido ao servidor
+	com um nome diferente
+
+
+1.6.2 LOGIN <nome> <password>
+
+O comando LOGIN serve para o utilizador pedir ao servidor para usar o 
+seu nome unico durante a ligação. O servidor deve responder com uma 
+das seguintes respostas possiveis:
+
+	- LOG_OK -> significa que o login efectuado pelo utilizador foi bem sucedido,
+	isto é,  o <nome> corresponde a <password>. O servidor deve informar todos
+	os utilizadores que estão presentes nos chats a que o utilizador pertence, o 
+	utilizador inclusive através da mensagem “USERLOGIN <nome>”.
+
+	- ERR_LOG -> significa que o login não foi bem efectuado isto é, o servidor
+	nao consegue associar <nome> a <password>. Cabe ao utilizador para enviar 
+	outro pedido com <nome> ou <password> diferentes. 
+	
+1.6.3 CHANGENICK <novo_nome>
+
+O comando CHANGENICK serve para o utilizador pedir ao servidor que efectue uma 
+mudança de nome. O servidor deve responder uma das duas respostas possíveis:
+
+	- OK_CHANGE <novo_nome> -> significa que o <novo_nome> foi aceite
+	e nao está ainda reservado, passando a estar reservado. 
+	Neste caso o servidor deve informar todos os outros utilizadores que o 
+	utilizador efectuou uma mudança de nome, atraves da 
+	mensagem “NICKCHANGE <nome_antigo> <novo_nome>”
+
+	- ERR_NICK <novo_nome> -> significa que o <novo_nome> já está a ser 
+	utilizado por um outro utilizador. Neste caso cabe ao utilizador reenviar 
+	outro pedido com um <novo_nome> diferente
+
+1.6.4 PASSWORD_RECOVERY <nome> <email>
+
+O comando PASSWORD_RECOVERY serve para o utilizador pedir ao servidor que
+lhe envie para o seu mail, se optou por registar o mail, a sua password.
+Para tal o utilizador envia um pedido ao servidor com o seu nome e mail,
+cabe ao servidor verificar se os dois campos estao correctos. 
+O servidor deve responder com uma das seguintes respostas possiveis:
+
+	- ERR_MAIL <email> -> significa que o mail associado a <nome> está
+	incorrecto.
+	O servidor notifica o utilizador e cabe ao utilizador realizar outro pedido. 
+
+	- ERR_NOME <nome> -> significa que o nome associado a <email> está
+	incorrecto. 
+	O servidor notifica o utilizador e cabe ao utilizador realizar outro pedido.
+
+	- MAIL_SENT <e-mail> -> significa que o nome associado a <email> está
+	correcto e vice versa. O servidor envia uma mensagem para <email> com
+	os dados da conta associados a <nome>.
+	
+1.6.5 REG_EMAIL <email>
+
+O comando REG_EMAIL serve para o utilizador que ja tenha efectuado
+login registar um email caso quando se tenha registado usando o comando
+NICKREG não tenha introduzido um email. 
+
+O servidor pode devolver uma das seguintes respostas possiveis:
+
+	- ERR_USER_PERMISSIONS -> significa que o utilizador que usou este comando
+	não é um utilizador registado. Só utilizadores registados podem
+	utilizar este comando
+	
+	- ERR_HAVE_EMAIL -> significa que o utilizador ja tem um mail registado.
+
+	- OK_EMAIL -> significa que o servidor associou o email ao nome do
+	utilizador com sucesso.
+
+1.6.6 CHANGE_EMAIL <email>
+
+O comando CHANGE_EMAIL serve para o utilizador que ja tenha feito o login
+alterar o mail existente para um outro. 
+O servidor pode devolver uma das seguintes respostas possiveis:
+
+	- ERR_USER_PERMISSIONS -> significa que o utilizador que usou este comando
+	não é um utilizador registado. Só utilizadores registados podem
+	utilizar este comando
+
+	- OK_CHANGE -> significa que o servidor alterou o email com sucesso. 
+	
+2. Canais
+
+Canais servem para indicar quem recebe quais mensagens. Um utilizador recebe 
+as mensagens de texto de todos os outros utilizadores que escreverem num
+respectivo canal.
+Todos os utilizadores incluindo temporários estão automaticamente subscritos 
+ao canal #cenas (canal global). Não tendo a opção de sair do mesmo. 
+
+2.1 Criação de canal
+	
+Qualquer utilizador registado pode submeter um pedido ao servidor para criar
+um canal, especificando o nome do canal e o tópico geral do mesmo ( ou titulo), 
+assumindo que um canal com esse nome não exista, ou seja que o servidor 
+não o tenha reservado.
+
+2.2 Destruição de canal
+	
+Se um canal não tiver utilizadores na lista, o servidor apaga esse canal 
+e o nome deixar de estar reservado. 
+
+2.3. Entrada e saída de canal 	
+
+Qualquer utilizador pode entrar e sair de um canal usando comandos,
+basta submeter um pedido ao servidor para tal. Ao sair ou entrar
+o servidor envia notificacoes a todos os utilizadores presentes no canal
+que o utilizador entrou ou saiu. 
+
+2.4 Comandos
+
+Os utilizadores enviam comandos ao servidor que geram respostas. 
+Em seguida estão descritos os comandos disponiveis.
+
+2.4.1 CHANNEL_CREATE <channel> <topic>
+
+O comando CHANNEL_CREATE serve para criar um canal novo com o nome <nome>
+e o tópico <topic>. O servidor deve responder com uma de tres mensagens
+possiveis:
+
+	- CHANNEL_CREATE_OK <channel> <topic> -> Significa que o comando foi aceite
+	e um canal com o nome <nome> e topico <topic> foi criado.
+
+	- CHANNEL_CREATE_ERROR_DENIED_ACESS <channel> <topic> -> Significa que
+	a criação do canal com o nome <nome> falhou porque o utilizador em questão
+	não era um utilizador registado, não tendo o direito de criar um canal.
+
+	- CHANNEL_CREATE_ERROR_NAME <channel> <topic> ->Signifca que a criação do 
+	canal com o nome <channel> falhou, porque já existe um canal com o mesmo
+	nome.
+
+2.4.2 CHANNEL_ENTER <channel>
+
+O comando CHANNEL_ENTER <channel> serve para o utilizador entrar no canal com o 
+nome <channel>. O servidor deve dar uma das seguintes mensagens como resposta:
+
+	- CHANNEL_ENTER_OK <channel> ->Signifca que o comando foi aceite e o
+	utilizador entrou no canal com o nome <channel>. O servidor deve enviar uma
+	mensagem a todos os utilizadores presentes no canal atraves da mensagem: 
+	"CHANNELENTER <channel> <nome>"
+
+	- CHANNEL_ENTER_INVALID <channel> ->Significa que não existe um canal com o
+	nome <nome> e como tal o comando é rejeitado.
+
+	- CHANNEL_ENTER_FULL <channel> ->Significa que o que o canal com o nome
+	<nome> estava cheio e como tal o comando foi rejeitado.
+
+	
+2.4.3 LEAVE <channel> [<message>]
+
+O comando LEAVE serve para um utilizador sair do canal a que pertenca.
+As respostas do servidor sao as seguinte:
+
+	- ERR_LEAVE <channel> -> significa que um utilizador tenta sair de
+	um canal que nao existe. Cabe ao utilizador, submeter outro pedido
+	ao servidor.
+	
+	
+	- ERR_CHANNEL <channel> -> significa que o canal em questao, 
+	nao existe. 
+
+	- CHANNEL_LEAVE_OK <channel> -> significa que o servidor aceitou
+	o comando e notifica todos os utilizadores presentes no canal <channel>
+	atraves da mensagem: "USERLEAVE <nome> [<message>]"
+
+	- ERR_CHANNEL_EXIT_GLOBALERROR <nome> -> Mensagem enviada quando o
+	utilizador tentar usar o comando LEAVE para sair do canal global de chat
+	do servidor. Como previsto, o pedido é rejeitado e o comando ignorado.
+	
+2.4.4 CHANGE_TOPIC <channel> <topic>
+
+o comando CHANGE_TOPIC <channel> <topic> serve para um utilizador
+(que esteja no canal) mudar o topico para <topic> do canal com o nome <channel>.
+O servidor deve dar uma das seguintes mensagens como resposta:
+
+	- CHANGE_TOPIC_ERROR <channel> <topic> -> Significa que o utilizador tentou
+	mudar o topico dum canal no qual não está presente. Como tal, o pedido
+	é rejeito e o comando ignorado.
+
+	- CHANGE_TOPIC_OK <channel> <channel> <topic> -> Signfica que o pedido foi 
+	aceite, tal que o utilizador <nome> mudou o topico do canal <channel> 
+	para <topic>. Todos os utilizadores presentes no canal sao notificados
+	através da mensagem: "<nome> CHANGED <channel> TOPIC TO <topic>"
+	
+2.4.5 LIST [<channel>]
+
+O comando LIST serve para um utilizador, receber uma lista de todos
+os utilizadores presentes no chat global ou 
+uma lista de todos os utiizadores que estejam presentes no canal <nome>.
+Este ultimo necesssita de o utilizador estar presente no canal.
+O servidor deve dar uma das seguintes mensagens como resposta:
+
+	- LIST_ERROR <channel> -> Significa que não existe nenhum canal com esse
+	nome. Paciencia ¯\_(ツ)_/¯. 
+	
+	- ERR_LIST_PERMS <channel> -> Significa que o utilizador nao esta
+	na lista de utilizadores do canal.
+	
+	- LIST_OK <channel> -> Significa que existe um canal com o nome <nome>, 
+	e o servidor procede a enviar uma sequencia de mensagens com o formato
+	"USER <nome>" sendo este <nome> o nome de utilizador, repetindo
+	para cada utilizador no canal.
+	
+	- LIST_OK -> significa uma sequencia de mensagens presentes no canal global.
+	o servidor procede a enviar uma sequencia de mensagens com o formato
+	"USER <nome>" sendo este <nome> o nome de utilizador, repetindo
+	para cada utilizador no canal global.
+
+3. Mensagens
+
+Qualquer utilizador pode iniciar uma conversa seja privada ou publica. 
+Um utilizador so pode enviar mensagens para os canais que pertence. 
+Uma mensagem consiste numa string textual juntamente com um comando
+para especificar para onde enviar essa mensagem. 
+Os outros utilizadores nao devem estar a espera que estas mensagens chegam
+portanto deve ser assincrona, podendo estas chegar a qualquer altura ou 
+nao chegar de todo. 
+
+3.1 Mensagem de chat
+	
+Uma mensagem de chat corresponde a uma mensagem "one-to-many", isto é,
+ao ser enviada todos os utilizadores presentes no canal onde esta mensagem
+for enviada é vista por todos os que pertecem a lista de utilizadores do mesmo.
+
+3.2 Mensagem privada
+
+Uma mensagem privada corresponde a uma mensagem do genero "one-to-one", isto é,
+ao ser enviada, so o utilizador a que está a ser destinado a mensagem pode
+visualizar.
+Pode ser um utilizador qualquer, nao ha restricoes.
+
+3.4 Comandos
+
+3.4.1 MESSAGEALL <mensagem>
+
+O comando MESSAGEALL envia uma mensagem para todos os utilizadores no canal
+#cenas.
+Todos os utilizadores devem receber a mensagem. 
+O servidor pode responder com uma das seguintes respostas:
+
+	- ERR_UNDELIVERED -> a mensagem não foi entregue devido a erro.
+
+O utilizador recebe tambem
+a sua propria mensagem e a mensagem chega aos restantes utilizadores
+no formato “MESSAGEALLFROM <nome> <messagem>”.
+
+
+3.4.2 MESSAGECHANNEL <canal> <nome> <mensagem>
+
+O comando MESSAGECHANNEL envia uma mensagem para todos os utilizadores
+no canal <canal>. Todos os utilizadores que pertencem a este canal devem
+receber a mensagem.
+O utilizador recebe tambem a sua propria mensagem e a mensagem chega
+aos utiizadores aos restantes utilizadores 
+no formato “MESSAGECHANNELFROM <canal> <nome> <messagem>”
+
+O servidor pode responder com umas das seguintes possiveis respostas:
+
+	- ERR_CHANNEL <channel> -> significa que o canal a qual o utilizador 
+	quer enviar a mensagem, ou não existe. Cabe ao utilizador realizar
+	outro pedido ao servidor.
+
+	- ERR_CHANNEL_LIST <channel> -> significa que a lista de utilizadores 
+	desse canal não tem o utilizador que está a enviar mensagem nessa
+	mesma lista.
+	Cabe ao utilizador realizar outro pedido ao servidor.
+
+	- ERR_UNDELIVERED -> a mensagem não foi entregue devido a erro.
+
+3.4.3 PM <nome> <mensagem> 
+
+O comando PM envia uma mensagem para um, e só um utilizador independente
+do canal em que esteja.
+
+O servidor pode responder a seguinte resposta: 
+	
+	- ERR_NAME <nome> -> significa que o nome a qual o utilizador quer
+	enviar a mensagem nao existe. Cabe ao utilizador voltar a realizar
+	outro pedido.
+	  
+	- ERR_UNDELIVERED -> a mensagem não foi entregue devido a erro.
+	
+Em caso de sucesso não ha resposta do servidor. Ambos utilizadores 
+recebem a mensagem enviada através do formato, 
+"PMFROM <emissor> <mensagem>". 
+
+3.4.4 QUIT [<message>]
+
+O comando QUIT indica ao servidor que o utilizador vai terminar a ligação
+com o servidor, o parametro <message> é opcional caso o utilizador queira
+mostrar aos outros utilizadores que saiu.
+
+O servidor nao tem resposta mas todos os utilizadores presentes no servidor
+devem receber uma notifição do genero "USERQUIT <nome> [<message>]" sendo
+<message> como dito anteriormente opcional, e <nome> o nome do utilizador
+	
+Caso nao haja erro, o servidor nao tem resposta mas envia notificações 
+a todos os utilizadores presentes no canal em questao atraves da mensagem
+"USERQUIT <nome>"
+	
+4. Transferência de Ficheiros
+
+Um utilizador registado pode submeter um pedido ao servidor
+para enviar a outro utilizador um ficheiro. O outro utilizador
+tem opções de aceitar ou recusar o pedido submetido pelo utilizador
+que quer enviar o ficheiro. A qualquer altura qualquer um dos utilizadores
+pode cancelar a transferencia  do ficheiro. 
+A transferencia de ficheiros e' de forma assincrona, isto e, o envio dos
+ficheiros nao condiciona o envio e recepcao de mensagens por parte
+do utilizador. O ficheiro ao ser enviado e' partido em pedaços e estes enviados
+por uma ordem qualquer e estes serao enviados ao outro utilizador que os junta 
+pela ordem certa quando forem todos recebidos.
+
+4.1 Comandos
+
+4.1.1 SEND <nome> <nome_ficheiro> 
+
+O comando SEND prepara o envio do ficheiro <nome_ficheiro> para onde o
+utilizador <nome> sendo lhe dado a hipotese de aceitar ou recusar
+(comando descritos na seccao 4.1.2 e 4.1.3). O servidor pode responder
+com uma das seguintes respostas: 	
+
+	- ERR_NOME -> significa que o utilizador <nome> não existe. Cabe ao 
+	utilizador fazer outro pedido ao servidor.
+	
+	- ERR_FILE -> significa que o ficheiro a enviar nao existe. Cabe ao
+	utilizador fazer outro pedido ao servidor.
+	
+Caso sucesso o servidor envia uma notificação ao outro utilizador através
+de uma mensagem "ACCEPT OR REFUSE FILE <ficheiro> FROM <nome>? "
+	
+4.1.2 ACCEPT <nome> <nome_ficheiro>
+
+O comando ACCEPT autoriza o envio por parte do utilizador que quer enviar.
+As respostas possiveis por parte do servidor sao as seguintes:
+
+	- ERR_ACCEPT_NOME <nome> -> significa que o utilizador <nome> está
+	incorrecto. Cabe ao utilizador fazer outro pedido ao servidor.
+	
+	- ERR_ACCEPT_FILE <nome> -> significa que o nome do ficheiro a receber
+	está incorrecto.
+	Cabe ao utilizador fazer outro pedido ao servidor.
+	
+Caso sucesso, o servidor envia uma notificação ao outro utilizador através
+de uma mensagem "<nome> ACCEPTED <ficheiro>" e pode enviar o ficheiro.
+	
+4.1.3 REFUSE <nome> <nome_ficheiro>
+
+O comando REFUSE recusa o envio por parte do utilizador que quer enviar.
+As respostas possiveis por parte do servidor:
+
+	- ERR_NOME <nome> -> significa que o utilizador <nome> está incorrecto.
+	Cabe ao utilizador fazer outro pedido ao servidor.
+	
+	- ERR_FILE <ficheiro> -> significa que o nome do ficheiro a receber está
+	incorrecto.
+	Cabe ao utilizador fazer outro pedido ao servidor.
+	
+Caso sucesso o servidor envia uma notificação ao outro utilizador através
+de uma mensagem "<nome> REFUSED <ficheiro>" e nao pode enviar o ficheiro.
+	
+4.1.4 CANCEL <nome> <nome_ficheiro>
+
+Durante a transferencia de um ficheiro, qualquer um dos dois utlizadores pode
+cancelar a transferencia do mesmo usando o comando CANCEL. A utilização deste 
+comando interrompe o envio e os "pedaços" de ficheiro sao eliminados, caso ja
+efectuado o comando SEND_FILE por parte do utilizador que quer enviar. 
+O servidor responde com a seguinte resposta:
+	- OK_CANCEL -> significa que o cancelamento do ficheiro foi bem sucedido.
+	
+	- ERR_CANCEL_NOME <nome> -> significa que o utilizador <nome> está
+	incorrecto. Cabe ao utilizador fazer outro pedido.
+	
+	- ERR_CANCEL_FILE <ficheiro> -> significa que o nome do ficheiro a receber
+	está incorrecto.
+	Cabe ao utilizador fazer outro pedido.
+
+Caso sucesso o servidor envia uma notificação ao outro utilizador através
+de uma mensagem "<nome> CANCELED <ficheiro>".
+
+4.1.5 SEND_FILE <nome> <nome_ficheiro> <content>
+
+O comando SEND_FILE envia o conteudo do ficheiro <nome_ficheiro> para o
+utilizador <nome> no qual o servidor "parte" o ficheiro em bocados, no qual
+sao enviados para <nome> numa ordem qualquer. 
+O servidor pode responder com uma das seguintes respostas:
+
+	- CANCEL_FILE <nome_ficheiro> -> significa que um dos utilizadores cancelou
+	o envio e neste caso todos os "bocados" de ficheiro sao eliminados pelo
+	servidor.
+	
+	- ERR_SEND_FILE <ficheiro> -> significa que o nome do ficheiro a receber
+	está incorrecto. Cabe ao utilizador fazer outro pedido.	
+	
+	- ERR_SEND_NOME <nome> -> significa que o utilizador <nome> está incorrecto.
+	Cabe ao utilizador fazer outro pedido.
+	
+	- OK_FILE_SEND <nome> <nome_ficheiro> <conteudo> -> significa que o ficheiro foi
+	enviado com sucesso.
+		
+O servidor envia um notificacao ao utilizador que envia atraves da mensagem:
+"SENDING FILE <nome_ficheiro> " e ao destinatario
+"<nome> SENDING FILE <nome_ficheiro>"
+
+4.1.6 RECEIVE_FILE <nome> <nome_ficheiro> <conteudo>
+	
+O comando serve para receber o conteudo do ficheiro <nome_ficheiro> 
+enviado pelo utilizador <nome>.
+Apos todos os bocados chegarem ao destinatario o servidor junta as os bocados do
+ficheiro pela ordem certa para formar
+o ficheiro completo.  
+O servidor pode responder com uma das seguintes respostas:
+
+	- CANCEL_FILE <nome_ficheiro> -> significa que um dos utilizadores cancelou
+	o envio e neste caso todos os "bocados" de ficheiro sao eliminados pelo
+	servidor.
+	
+	- ERR_FILE <ficheiro> -> significa que o nome do ficheiro a receber está
+	incorrecto. Cabe ao utilizador fazer outro pedido.	
+	
+	- ERR_NOME <nome> -> significa que o utilizador <nome> está incorrecto. 
+	Cabe ao utilizador fazer outro pedido.
+	
+	- OK_FILE_RECEIVE <nome> <nome_ficheiro> <conteudo> -> significa que o ficheiro foi
+	recebido com sucesso.
+
+
+5. Resumo de comandos, respostas, mensagens e notificações
+
+5.1 Comandos do utilizador
+
+---------------------------------------------------------------------------------
+| NICKREG <nickname> <PASSWORD>							|
+| LOGIN   <nome> <password>			 				|
+| REG_EMAIL <email>								|
+| CHANGE_EMAIL <email>				 				|
+| PASSWORD_RECOVERY <nome> <email> 						|
+| QUIT [<message>]								|
+| CHANNEL_CREATE <nome> <topic>							|
+| CHANNEL_ENTER <nome>								|
+| LEAVE <channel> [<message>]			 				|
+| LIST [<channel>]                                               		|			 
+| CHANGE_TOPIC <nome> <topic>			 				|
+| MESSAGEALL <message>                                				|
+| MESSAGECHANNEL <channel> <message>						|
+| PM <nome> <message>                                		 	 	|
+| SEND <nome> <ficheiro				 				|
+| ACCEPT <nome> <ficheiro>							|
+| REFUSE <nome> <ficheiro>							|		
+| CANCEL <nome> <ficheiro>			 				|
+| SEND_FILE <nome> <ficheiro> <conteudo>					|
+| RECEIVE_FILE <nome> <ficheiro> <conteudo>		      		        |
+---------------------------------------------------------------------------------
+
+5.2 Mensagens, respostas e notificaçoes do servidor
+ 
+---------------------------------------------------------------------------------
+| REG_OK <nome>                                     				|
+| ERR_NICK <nome> 								|
+| LOG_OK					 				|
+| USERLOGIN <nome>								|
+  ERR_LOG					 				|
+| OK_CHANGE <novo_nome>								|
+  NICKCHANGE <nome_actual> <novo_nome>		 				|
+| ERR_NICK <novo_nome>			 					|					 
+| ERR_MAIL <email>			 					|
+| ERR_NOME <nome>				 				|
+| MAIL_SENT <e-mail>								|
+| ERR_USER_PERMISSIONS			 					|
+| ERR_HAVE_EMAIL				 				|
+| OK_EMAIL				 					|
+| ERR_USER_PERMISSIONS			 					|
+| OK_CHANGE									|				
+| CHANNEL_CREATE_OK <nome> <topic>						|
+| CHANNEL_CREATE_ERROR_DENIED_ACESS <nome> <topic>				|				
+| CHANNEL_CREATE_ERROR_NAME <nome> <topic> 					|
+| CHANNEL_ENTER_OK <channel>							|
+  CHANNELENTER <channel> <nome>			 				|
+| CHANNEL_ENTER_INVALID <channel>		 				|
+| CHANNEL_ENTER_FULL <channel>							|
+| ERR_CHANNEL_EXIT_GLOBALERROR <nome>		 				|
+| CHANGE_TOPIC_ERROR <channel>		 					|
+| CHANGE_TOPIC_OK <nome> <channel> <topic> 					|
+| <nome> CHANGED <channel> TOPIC TO <topic>					|
+| LIST_ERROR <channel>			 					|
+| ERR_LIST_PERMS <channel>		 					|
+| LIST_OK <channel>			 					|
+| LIST_OK									|
+| USER <nome>					 				|				
+| ERR_CHANNEL <channel>			 					|			
+| ERR_CHANNEL_LIST <channel>			 				|
+| ERR_NAME <nome>				 				|
+| USERQUIT <nome> [<message>]			 				|
+| USERLEAVE <nome> [<message>]		 					|
+| ERR_UNDELIVERED 			 					|			
+| OK_FILE 				 					|
+| FILE_CANCEL <ficheiro> 			 				|
+| ERR_NOME 				 					|
+| ERR_FILE				     					|
+| OK_FILE_SEND <ficheiro>				 			|
+| OK_FILE_RECEIVE <ficheiro>			                                |
+| ERR_ACCEPT_NOME <nome>			 				|
+| ERR_ACCEPT_FILE <nome>			 				|			
+| ERR_NOME <nome>								|
+| ERR_FILE <ficheiro>                                          			|
+| OK_CANCEL<nome> <nome_ficheiro> <conteudo>					|									 
+| ERR_CANCEL_NOME <nome>							|
+| ERR_CANCEL_FILE <ficheiro>			 				|
+| ERR_SEND_FILE <ficheiro> 							|		
+| ERR_SEND_NOME <nome>                                         			|
+| SENDING FILE <nome_ficheiro>							|	
+| CANCEL_FILE <nome_ficheiro> 							|	
+| ERR_FILE <ficheiro>								|
+| ERR_NOME <nome>				  				|
+| MESSAGEALLFROM <nome> <messagem>						|
+| MESSAGECHANNELFROM <canal> <nome> <messagem>            			|
+| PMFROM <emissor> <mensagem>           					|
+| ACCEPT OR REFUSE FILE <ficheiro> FROM <nome>				 	|
+| <nome> ACCEPTED <ficheiro>							|
+| <nome> REFUSED <ficheiro>							|			
+| <nome> CANCELED <ficheiro>.					                |
+| <nome> SENDING FILE <nome_ficheiro>						|
+---------------------------------------------------------------------------------
